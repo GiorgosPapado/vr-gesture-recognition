@@ -1,0 +1,102 @@
+defaults:
+  - environment: george
+  - _self_
+
+validation: true
+
+# train:
+#   - dataset: controller-5
+#     sweep: controller-5
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+
+#   - dataset: controller-10
+#     sweep: controller-10
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+
+
+#   - dataset: righthand-5
+#     sweep: hand-5
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+
+#   - dataset: righthand-10
+#     sweep: hand-10
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+
+#   - dataset: lefthand-5
+#     sweep: hand-5
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+
+#   - dataset: lefthand-10
+#     sweep: hand-10
+#     classifiers:
+#       - catch22
+#       - IndividualTDE
+#       - KNeighborsTimeSeries      
+#       - rocket            
+#     train_cfg: train-all
+  
+test:
+  - dataset: controller-5
+    classifiers:
+      - catch22
+      - IndividualTDE
+      - KNeighborsTimeSeries      
+      - rocket            
+    test_cfg: test-all-controller
+
+  - dataset: controller-10
+    classifiers:
+      - catch22
+      - IndividualTDE
+      - KNeighborsTimeSeries      
+      - rocket            
+    test_cfg: test-all-controller
+
+  - dataset: lefhand-5    
+    classifiers:
+      - catch22
+      - IndividualTDE
+      - KNeighborsTimeSeries      
+      - rocket            
+    test_cfg: test-all-hand
+
+  # - dataset: controller-10    
+  #   classifiers:
+  #     - catch22
+  #     - IndividualTDE
+  #     - KNeighborsTimeSeries      
+  #     - rocket            
+  #   test_cfg: test-all
+
+  # - dataset: righthand-5    
+  #   classifiers:
+  #     - catch22
+  #     - IndividualTDE
+  #     - KNeighborsTimeSeries      
+  #     - rocket            
+  #   test_cfg: test-all

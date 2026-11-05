@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/371b5ecf91f44eb98b904163ca0685b7/artifacts
+end_time: 1675072528515
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: 371b5ecf91f44eb98b904163ca0685b7
+run_name: orderly-vole-942
+run_uuid: 371b5ecf91f44eb98b904163ca0685b7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675072523780
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,5 @@
+_target_: sktime.classification.feature_based.Catch22Classifier
+outlier_norm: ${classifier_params.outlier_norm}
+estimator: 
+    _target_: sklearn.ensemble.RandomForestClassifier    
+    n_estimators: ${classifier_params.n_estimators}

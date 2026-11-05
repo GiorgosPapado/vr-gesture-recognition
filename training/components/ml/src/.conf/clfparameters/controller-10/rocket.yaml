@@ -1,0 +1,4 @@
+classifier_params:
+  num_kernels: 155
+  max_dilations_per_kernel: 16
+  n_features_per_kernel: 2

@@ -1,0 +1,9 @@
+_target_: sktime.classification.dictionary_based.IndividualTDE
+window_size: ${classifier_params.window_size}
+word_length: ${classifier_params.word_length}
+norm: ${classifier_params.norm}
+igb: ${classifier_params.igb}
+alphabet_size: ${classifier_params.alphabet_size}
+bigrams: ${classifier_params.bigrams}
+dim_threshold: ${classifier_params.dim_threshold}
+max_dims: ${classifier_params.max_dims}

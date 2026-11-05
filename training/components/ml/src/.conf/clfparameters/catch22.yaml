@@ -1,0 +1,16 @@
+classifier_params:
+  initial:
+    outlier_norm: false
+    n_estimators: 100
+
+  controller-5:
+    outlier_norm: false
+    n_estimators: 58
+
+  controller-10:
+    outlier_norm: true
+    n_estimators: 60
+
+  righthand-5:
+    outlier_norm: true
+    n_estimators: 100

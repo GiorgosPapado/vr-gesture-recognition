@@ -1,0 +1,8 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.n_estimators: 7
+  preprocess:
+  - interpolation
+  sweep@_global_: drcif
+  dataset: controllers-4
+best_evaluated_result: 0.99921875

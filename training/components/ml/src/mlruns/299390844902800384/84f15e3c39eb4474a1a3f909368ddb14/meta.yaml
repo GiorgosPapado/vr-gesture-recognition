@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/84f15e3c39eb4474a1a3f909368ddb14/artifacts
+end_time: 1674826710108
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 84f15e3c39eb4474a1a3f909368ddb14
+run_name: invincible-grub-366
+run_uuid: 84f15e3c39eb4474a1a3f909368ddb14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674826702460
+status: 3
+tags: []
+user_id: giorgospap

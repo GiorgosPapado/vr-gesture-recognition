@@ -1,0 +1,21 @@
+name: controller-test3
+dataset_loader: controller
+path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+feature_names:
+  - ControllerPos
+  - ControllerOrientation
+  #- Time
+gesture_names:
+  - L
+  - O
+  - V
+  - e
+  - S
+  - D
+  - C
+  - M
+  - '>'
+  - INFINITY
+handedness: null
+train_index_file: ${environment.dataset.index_file_base_dir}\controller_train_split.txt  
+test_index_file: ${environment.dataset.index_file_base_dir}\controller_test_split.txt

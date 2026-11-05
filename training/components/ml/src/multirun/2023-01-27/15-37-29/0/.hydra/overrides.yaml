@@ -1,0 +1,2 @@
+- classifier.num_kernels=10
+- preprocess=['interpolation']

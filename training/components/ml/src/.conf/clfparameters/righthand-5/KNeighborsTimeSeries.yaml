@@ -1,0 +1,6 @@
+classifier_params:
+  n_neighbors: 16
+  weights: uniform
+  algorithm: brute
+  distance: dtw
+  leaf_size: 22

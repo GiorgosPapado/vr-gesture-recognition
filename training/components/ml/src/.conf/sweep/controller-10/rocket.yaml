@@ -1,0 +1,26 @@
+defaults:
+  - /classifier: rocket
+
+sweep:
+  budget: 30
+  parameters:
+
+    classifier.num_kernels: 
+      lower: 20
+      upper: 200
+      integer: true
+
+    classifier.max_dilations_per_kernel:
+      lower: 1
+      upper: 64
+      integer: true
+
+    classifier.n_features_per_kernel:
+      lower: 1
+      upper: 3
+      integer: true
+  
+
+    preprocess:
+      - - controller-translation-transform
+        - interpolation 

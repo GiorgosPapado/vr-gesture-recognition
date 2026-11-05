@@ -1,0 +1,21 @@
+name: controller-8
+path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+dataset_loader: controller
+feature_names:
+  - ControllerPos
+#  - Time
+# index_file: ${environment.dataset.index_file_base_dir}controller_train_split.txt  
+gesture_names:
+  - I
+  - U
+  - INFINITY
+  - '<'
+  - O
+  - L
+  - e
+  - M
+
+handedness: null
+train_index_file: ${environment.dataset.index_file_base_dir}\controller_train_split.txt  
+test_index_file: ${environment.dataset.index_file_base_dir}\controller_test_split.txt
+# test_file: ${environment.dataset.index_file_base_dir}controller_test_split.txt

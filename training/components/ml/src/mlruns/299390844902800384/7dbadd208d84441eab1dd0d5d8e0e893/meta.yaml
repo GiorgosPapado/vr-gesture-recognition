@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/7dbadd208d84441eab1dd0d5d8e0e893/artifacts
+end_time: 1674740979291
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 7dbadd208d84441eab1dd0d5d8e0e893
+run_name: merciful-seal-243
+run_uuid: 7dbadd208d84441eab1dd0d5d8e0e893
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674740976773
+status: 3
+tags: []
+user_id: giorgospap

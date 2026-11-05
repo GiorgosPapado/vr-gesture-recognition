@@ -1,0 +1,6 @@
+artifact_location: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395
+creation_time: 1674836564077
+experiment_id: '733571556823665395'
+last_update_time: 1674836564077
+lifecycle_stage: active
+name: KNeighborsTimeSeriesClassifier

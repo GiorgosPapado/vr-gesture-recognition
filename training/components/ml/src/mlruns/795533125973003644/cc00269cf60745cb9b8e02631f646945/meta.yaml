@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/cc00269cf60745cb9b8e02631f646945/artifacts
+end_time: 1675073048166
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: cc00269cf60745cb9b8e02631f646945
+run_name: fun-stag-621
+run_uuid: cc00269cf60745cb9b8e02631f646945
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675073043442
+status: 3
+tags: []
+user_id: giorgospap

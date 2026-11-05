@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/296712347732705089/8819cd54ef94441b8ae6669ac3519e42/artifacts
+end_time: 1675070572077
+entry_point_name: ''
+experiment_id: '296712347732705089'
+lifecycle_stage: active
+run_id: 8819cd54ef94441b8ae6669ac3519e42
+run_name: masked-lark-637
+run_uuid: 8819cd54ef94441b8ae6669ac3519e42
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675070565358
+status: 3
+tags: []
+user_id: giorgospap

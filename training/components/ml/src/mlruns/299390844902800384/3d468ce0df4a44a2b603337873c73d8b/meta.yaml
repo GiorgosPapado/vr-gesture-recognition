@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/3d468ce0df4a44a2b603337873c73d8b/artifacts
+end_time: 1674826471118
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 3d468ce0df4a44a2b603337873c73d8b
+run_name: loud-vole-69
+run_uuid: 3d468ce0df4a44a2b603337873c73d8b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674826465172
+status: 3
+tags: []
+user_id: giorgospap

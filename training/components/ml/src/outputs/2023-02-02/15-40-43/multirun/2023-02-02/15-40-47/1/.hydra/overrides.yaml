@@ -1,0 +1,4 @@
+- classifier.n_neighbors=36
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=KNeighborsTimeSeries
+- dataset=lefthand-4

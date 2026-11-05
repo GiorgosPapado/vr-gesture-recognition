@@ -1,0 +1,4 @@
+- classifier.n_neighbors=3
+- preprocess=['interpolation']
+- sweep@_global_=KNeighborsTimeSeries
+- dataset=controllers-4

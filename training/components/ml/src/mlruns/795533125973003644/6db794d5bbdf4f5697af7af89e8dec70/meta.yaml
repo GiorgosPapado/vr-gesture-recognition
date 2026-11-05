@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/6db794d5bbdf4f5697af7af89e8dec70/artifacts
+end_time: 1675072589926
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: 6db794d5bbdf4f5697af7af89e8dec70
+run_name: upbeat-donkey-420
+run_uuid: 6db794d5bbdf4f5697af7af89e8dec70
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675072585493
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,4 @@
+- classifier.n_estimators=4
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=drcif
+- dataset=lefthand-4

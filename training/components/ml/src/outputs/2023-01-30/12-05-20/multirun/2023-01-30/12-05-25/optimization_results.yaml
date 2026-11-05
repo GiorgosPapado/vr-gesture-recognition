@@ -1,0 +1,8 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.n_neighbors: 6
+  preprocess:
+  - interpolation
+  sweep@_global_: KNeighborsTimeSeries
+  dataset: controllers-4
+best_evaluated_result: 0.6477403060583208

@@ -1,0 +1,12 @@
+defaults:  
+  - environment: iti901
+  - random: rand
+  - nevergrad@_global_: 
+        - common
+        - nevergrad
+  - mlflow: mlflow  
+  - dataset: controller-5
+  - preprocess:    
+    - controller-translation-transform
+    - interpolation 
+  - _self_ 

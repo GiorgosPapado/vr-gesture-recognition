@@ -1,0 +1,2 @@
+- classifier.n_epochs=25
+- preprocess=['interpolation']

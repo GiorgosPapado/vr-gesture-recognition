@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/ea2598eef529400aad0ad039d1dcda7b/artifacts
+end_time: 1675086995371
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: ea2598eef529400aad0ad039d1dcda7b
+run_name: gentle-eel-205
+run_uuid: ea2598eef529400aad0ad039d1dcda7b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675086988545
+status: 3
+tags: []
+user_id: giorgospap

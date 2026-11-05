@@ -1,0 +1,4 @@
+- classifier.n_estimators=80
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=rotationforest
+- dataset=controllers-4

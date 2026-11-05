@@ -1,0 +1,12 @@
+defaults:  
+  - environment: george
+  - random: rand    
+  - mlflow: mlflow
+  - dataset: controller-8
+  #- dataset: lefthand-4
+  - classifier: rocket
+  - preprocess:    
+    #- controller-transform
+    # - hand-transform
+    - controller-translation-transform
+    - interpolation

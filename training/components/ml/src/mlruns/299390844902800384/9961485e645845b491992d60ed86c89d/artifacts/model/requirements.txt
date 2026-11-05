@@ -1,0 +1,7 @@
+mlflow<3,>=2.1
+cloudpickle==2.2.1
+nptyping==1.4.2
+omegaconf==2.3.0
+scikit-learn==1.2.0
+sktime==0.15.1
+typing-extensions==4.4.0

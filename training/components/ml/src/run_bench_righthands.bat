@@ -1,0 +1,1 @@
+python.exe bench.py --config-name bench-right-hands

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/dc8b43e6665d4e6f9ca3278a46d2dedd/artifacts
+end_time: 1675074911760
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: dc8b43e6665d4e6f9ca3278a46d2dedd
+run_name: bright-auk-332
+run_uuid: dc8b43e6665d4e6f9ca3278a46d2dedd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675074907297
+status: 3
+tags: []
+user_id: giorgospap

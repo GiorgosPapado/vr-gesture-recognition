@@ -1,0 +1,3 @@
+hand_transform:
+  _target_: utils.preproc.TSHandCoordinateTransform
+  global_position_indices: [0,1,2]

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/2a88cb8039c5417c90e3b4eb46b37dae/artifacts
+end_time: 1676558998183
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: 2a88cb8039c5417c90e3b4eb46b37dae
+run_name: sedate-grouse-841
+run_uuid: 2a88cb8039c5417c90e3b4eb46b37dae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1676558990433
+status: 3
+tags: []
+user_id: giorgospap

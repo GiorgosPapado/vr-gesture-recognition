@@ -1,0 +1,8 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.window_inc: 2
+  preprocess:
+  - interpolation
+  sweep@_global_: MUSE
+  dataset: controllers-4
+best_evaluated_result: 1.0

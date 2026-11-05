@@ -1,0 +1,33 @@
+defaults:
+  - /classifier: KNeighborsTimeSeries
+
+sweep:
+  budget: 15
+  parameters:
+    # either one or the other
+    classifier.n_neighbors: 
+      lower: 1
+      upper: 20
+      integer: true
+    
+    classifier.weights:
+      - uniform
+      - distance
+
+    classifier.algorithm:
+      - brute
+      - ball_tree
+      - kd_tree
+
+    classifier.distance:
+      - dtw
+      - euclidean
+
+    classifier.leaf_size:
+      lower: 10
+      upper: 30
+      integer: true      
+
+    preprocess:
+      - - controller-translation-transform
+        - interpolation

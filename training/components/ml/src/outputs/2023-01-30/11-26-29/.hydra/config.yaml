@@ -1,0 +1,5 @@
+environment:
+  python: C:\Users\giorgospap\Desktop\EKETA\INFINITY\PyEnvs\vr_gestures\Scripts\python.exe
+experiments:
+- classifier: catch22
+  dataset: controllers-4

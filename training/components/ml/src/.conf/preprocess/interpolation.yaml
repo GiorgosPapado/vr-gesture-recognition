@@ -1,0 +1,3 @@
+tsinterpolation:
+  _target_: sktime.transformations.panel.interpolate.TSInterpolator
+  length: 180

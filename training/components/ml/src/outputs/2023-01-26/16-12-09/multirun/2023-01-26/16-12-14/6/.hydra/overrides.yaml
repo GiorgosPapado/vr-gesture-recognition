@@ -1,0 +1,4 @@
+- classifier.num_kernels=8
+- preprocess=['interpolation']
+- sweep@_global_=rocket
+- dataset=controllers-4

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/247328464588081837/a4970e26ee5c42d19081c32019ddbfa7/artifacts
+end_time: 1675074403936
+entry_point_name: ''
+experiment_id: '247328464588081837'
+lifecycle_stage: active
+run_id: a4970e26ee5c42d19081c32019ddbfa7
+run_name: clumsy-duck-871
+run_uuid: a4970e26ee5c42d19081c32019ddbfa7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675074399358
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,31 @@
+defaults:
+  - environment: alex
+  - _self_
+
+validation: true
+
+experiments:
+
+  - dataset: controller-5
+    sweep: controller-5
+    classifiers:
+      - catch22
+      - IndividualTDE
+      - KNeighborsTimeSeries
+      - MUSE
+      - rocket      
+      - signature
+    train_cfg: train-alex
+
+  - dataset: controller-10
+    sweep: controller-10
+    classifiers:
+      - catch22
+      - IndividualTDE
+      - KNeighborsTimeSeries
+      - MUSE
+      - rocket      
+      - signature
+    train_cfg: train-alex
+
+  

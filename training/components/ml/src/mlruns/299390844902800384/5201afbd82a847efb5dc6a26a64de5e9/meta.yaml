@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/5201afbd82a847efb5dc6a26a64de5e9/artifacts
+end_time: 1674825105274
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 5201afbd82a847efb5dc6a26a64de5e9
+run_name: persistent-hog-610
+run_uuid: 5201afbd82a847efb5dc6a26a64de5e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674825097813
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/b688836b59d2478a9d3368081e1853d7/artifacts
+end_time: 1674741431723
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: b688836b59d2478a9d3368081e1853d7
+run_name: inquisitive-bug-216
+run_uuid: b688836b59d2478a9d3368081e1853d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674741424755
+status: 3
+tags: []
+user_id: giorgospap

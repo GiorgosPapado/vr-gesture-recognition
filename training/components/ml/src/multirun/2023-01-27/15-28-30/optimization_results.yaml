@@ -1,0 +1,7 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.num_kernels: 4
+  preprocess:
+  - identity
+  - interpolation
+best_evaluated_result: 0.7676839245313509

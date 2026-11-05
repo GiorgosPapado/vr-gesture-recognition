@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/247328464588081837/8758176ab2b047288b2ac5aa5c0db7b5/artifacts
+end_time: 1675074495878
+entry_point_name: ''
+experiment_id: '247328464588081837'
+lifecycle_stage: active
+run_id: 8758176ab2b047288b2ac5aa5c0db7b5
+run_name: intelligent-mink-393
+run_uuid: 8758176ab2b047288b2ac5aa5c0db7b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675074491212
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,3 @@
+classifier_params:
+  outlier_norm: true
+  n_estimators: 100

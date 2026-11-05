@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/ba48668fdad04a42ad920c4b5cb55b92/artifacts
+end_time: 1675073252117
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: ba48668fdad04a42ad920c4b5cb55b92
+run_name: painted-newt-776
+run_uuid: ba48668fdad04a42ad920c4b5cb55b92
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675073247438
+status: 3
+tags: []
+user_id: giorgospap

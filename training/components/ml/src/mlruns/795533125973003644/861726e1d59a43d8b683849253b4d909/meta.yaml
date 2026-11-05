@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/861726e1d59a43d8b683849253b4d909/artifacts
+end_time: 1675068769772
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: 861726e1d59a43d8b683849253b4d909
+run_name: suave-worm-213
+run_uuid: 861726e1d59a43d8b683849253b4d909
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675068762202
+status: 3
+tags: []
+user_id: giorgospap

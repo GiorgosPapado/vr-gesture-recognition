@@ -1,0 +1,2 @@
+- classifier.num_kernels=4
+- preprocess=['identity', 'interpolation']

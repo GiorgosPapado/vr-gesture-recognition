@@ -1,0 +1,4 @@
+- classifier.estimators=10
+- preprocess=['interpolation']
+- sweep@_global_=column
+- dataset=controllers-4

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/56e8dc7e1161497b8d6248e80fc349d7/artifacts
+end_time: 1674740882041
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 56e8dc7e1161497b8d6248e80fc349d7
+run_name: likeable-lark-808
+run_uuid: 56e8dc7e1161497b8d6248e80fc349d7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674740878847
+status: 3
+tags: []
+user_id: giorgospap

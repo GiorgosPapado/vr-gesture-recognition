@@ -1,0 +1,6 @@
+_target_: sktime.classification.distance_based.KNeighborsTimeSeriesClassifier
+n_neighbors: ${classifier_params.n_neighbors}
+weights: ${classifier_params.weights}
+algorithm: ${classifier_params.algorithm}
+distance: ${classifier_params.distance}
+leaf_size: ${classifier_params.leaf_size}

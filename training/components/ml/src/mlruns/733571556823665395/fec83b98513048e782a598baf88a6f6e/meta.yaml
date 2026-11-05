@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/fec83b98513048e782a598baf88a6f6e/artifacts
+end_time: 1675073486513
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: fec83b98513048e782a598baf88a6f6e
+run_name: capable-sow-404
+run_uuid: fec83b98513048e782a598baf88a6f6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675073480500
+status: 3
+tags: []
+user_id: giorgospap

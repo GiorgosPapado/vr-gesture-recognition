@@ -1,0 +1,38 @@
+environment:
+  python: E:/PyEnvs/env_vr_gestures/Scripts/python.exe
+  mlflow:
+    mlruns_path: file://G:/aldoum/code/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: G:/aldoum/code/vr-gestures/components/ml/src/
+    controller_dataset_dir: F:/dataset/vcl3d-controller-gesture-dataset/remove-unused
+    hand_dataset_dir: F:\dataset\vcl3d-hand-gesture-dataset\bin\fixed-labels
+random:
+  seed: 42
+dataset:
+  name: controller-test3
+  dataset_loader: controller
+  path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+  feature_names:
+  - ControllerPos
+  - ControllerOrientation
+  gesture_names:
+  - L
+  - O
+  - V
+  - e
+  - S
+  - D
+  - C
+  - M
+  - '>'
+  - 'INFINITY'
+  handedness: null
+  train_index_file: ${environment.dataset.index_file_base_dir}\controller_train_split.txt
+  test_index_file: ${environment.dataset.index_file_base_dir}\controller_test_split.txt
+actions:
+  to_onnx:
+    sktime_model_file_path: D:\tmp\rocket-sktime-model\model.pkl
+    output_onnx_file_path: D:\tmp\rocket-sktime-model\model.onnx
+    in_features: 7
+  evaluate_onnx:
+    onnx_file_path: D:\tmp\rocket-sktime-model\model.onnx

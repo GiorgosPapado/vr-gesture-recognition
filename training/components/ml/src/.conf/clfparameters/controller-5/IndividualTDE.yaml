@@ -1,0 +1,9 @@
+classifier_params:
+  window_size: 11
+  word_length: 6
+  norm: false
+  igb: false
+  alphabet_size: 5
+  bigrams: false
+  dim_threshold: 0.824307378087307
+  max_dims: 14

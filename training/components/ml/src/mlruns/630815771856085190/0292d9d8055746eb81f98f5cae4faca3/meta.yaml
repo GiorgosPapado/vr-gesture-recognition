@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/630815771856085190/0292d9d8055746eb81f98f5cae4faca3/artifacts
+end_time: 1675072168014
+entry_point_name: ''
+experiment_id: '630815771856085190'
+lifecycle_stage: active
+run_id: 0292d9d8055746eb81f98f5cae4faca3
+run_name: thoughtful-snipe-131
+run_uuid: 0292d9d8055746eb81f98f5cae4faca3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675072163226
+status: 3
+tags: []
+user_id: giorgospap

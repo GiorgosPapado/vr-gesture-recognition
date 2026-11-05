@@ -1,0 +1,16 @@
+defaults:
+  - override /hydra/sweeper: nevergrad
+
+hydra:
+  sweeper:
+    optim:
+      # name of the nevergrad optimizer to use
+      # OnePlusOne is good at low budget, but may converge early
+      optimizer: ${sweep.optimizer}
+      # total number of function evaluations to perform
+      budget: ${sweep.budget}
+      # number of parallel workers for performing function evaluations
+      num_workers: ${sweep.num_workers}
+      maximize: true  # comment out for maximization
+    # default parametrization of the search space
+    parametrization: ${sweep.parameters}

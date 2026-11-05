@@ -1,0 +1,45 @@
+environment:
+  mlflow:
+    mlruns_path: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\
+    controller_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\Alex Folder\Gestures
+random:
+  seed: 42
+sweep:
+  optimizer: OnePlusOne
+  budget: 3
+  num_workers: 3
+  parameters:
+    classifier.dim_threshold:
+      lower: 80
+      upper: 90
+      integer: true
+    preprocess:
+    - - interpolation
+    - - identity
+      - interpolation
+classifier:
+  _target_: sktime.classification.dictionary_based.IndividualTDE
+  dim_threshold: 83
+mlflow:
+  mlruns_path: ${environment.mlflow.mlruns_path}
+dataset:
+  train_size: 0.7
+  path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+  feature_names:
+  - RightControllerPos
+  - Time
+  index_file: ${environment.dataset.index_file_base_dir}controller_train_split.txt
+  gesture_names:
+  - I
+  - O
+  - L
+  - V
+  test_file: ${environment.dataset.index_file_base_dir}controller_test_split.txt
+preprocess:
+  identity:
+    _target_: sktime.transformations.compose.Id
+  tsinterpolation:
+    _target_: sktime.transformations.panel.interpolate.TSInterpolator
+    length: 120

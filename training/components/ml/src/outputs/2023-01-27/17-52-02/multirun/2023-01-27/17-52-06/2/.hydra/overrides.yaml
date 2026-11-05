@@ -1,0 +1,4 @@
+- classifier.estimators=13
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=column
+- dataset=controllers-4

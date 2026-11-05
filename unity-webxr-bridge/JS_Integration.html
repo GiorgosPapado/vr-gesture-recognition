@@ -1,0 +1,158 @@
+<html>
+<head>
+    <title>VR Controller Gesture Recognizer Example</title>
+    <style>
+        button {
+            color: #ffffff;
+            background-color: #2d63c8;
+            font-size: 19px;
+            border: 1px solid #2d63c8;
+            padding: 15px 50px;
+            margin-top: 10%;
+            cursor: pointer
+        }
+
+        button:hover {
+                color: #2d63c8;
+                background-color: #ffffff;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+
+        p {
+            background-color: #ffffff;
+            font-family: Arial;
+            font-size: 18px;
+            font-style: italic;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: none;
+            color: #e00b4b;
+            background-color: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<p class = "text-center">In this HTML page, we assemble the predicted results based on Controller Gestures from both javascript and python. Two buttons appear, the former gets its Controller input from the training set, while the latter takes its value from the test set. OnClick, a random instance is being called. Both buttons return the Ground Truth Name and ID and correlate them with the outcome from both languages to check if they match. Finally, each of our gestures measures their probability to fit the random gesture.</p>
+
+        <div class="text-center">
+        <button type="button" name="TrainButton" onclick="runExample('./gesture_data_train.json', 'train', {
+            'gt_class_id' : 'gt_class_id_train',
+            'gt_class_name' : 'gt_class_name_train',
+            'py_pred_class_id' : 'py_class_id_train',
+            'py_pred_class_name' : 'py_class_name_train',
+            'py_pred_prob' : 'py_pred_prob_train',
+            'js_pred_class_id' : 'js_class_id_train',
+            'js_pred_class_name' : 'js_class_name_train',
+            'js_pred_prob' : 'js_pred_prob_train'
+
+        })">Train</button>
+        <p id="gt_class_name_train"></p><br>
+        <p id="gt_class_id_train"></p><br>
+        <p id="py_class_name_train"></p><br>
+        <p id="js_class_name_train"></p><br>
+        <p id="py_class_id_train"></p><br>
+        <p id="js_class_id_train"></p><br>
+        <p>
+            Gesture Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; U &nbsp;&nbsp;&nbsp;&nbsp&nbsp INFINITY &nbsp;&nbsp; < &nbsp&nbsp;&nbsp;&nbsp;&nbsp; O &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M
+        </p><br>
+        <p id="py_pred_prob_train"></p><br>
+        <p id="js_pred_prob_train"></p><br>
+    </div>
+
+    <div class="text-center">
+        <button type="button" name="TestButton" onclick="runExample('./gesture_data_test.json', 'test', {
+            'gt_class_id' : 'gt_class_id_test',
+            'gt_class_name' : 'gt_class_name_test',
+            'py_pred_class_id' : 'py_class_id_test',
+            'py_pred_class_name' : 'py_class_name_test',
+            'py_pred_prob' : 'py_pred_prob_test',
+            'js_pred_class_id' : 'js_class_id_test',
+            'js_pred_class_name' : 'js_class_name_test',
+            'js_pred_prob' : 'js_pred_prob_test'
+
+        }
+        )">Test</button>
+        <p id="gt_class_name_test"></p><br>
+        <p id="gt_class_id_test"></p><br>
+        <p id="py_class_name_test"></p><br>
+        <p id="js_class_name_test"></p><br>
+        <p id="py_class_id_test"></p><br>
+        <p id="js_class_id_test"></p><br>
+        <p>
+            Gesture Name: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; U &nbsp;&nbsp;&nbsp; INFINITY &nbsp;&nbsp; < &nbsp;&nbsp;&nbsp;&nbsp; O &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; e &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M
+        </p><br>
+        <p id="py_pred_prob_test"></p><br>
+        <p id="js_pred_prob_test"></p><br>
+    </div>
+
+    <script src="./gesture_engine.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+		//make percentage fixed to 2 decimal places
+		function make_fixed(each_element) {
+            return each_element.toFixed(4);
+		}
+    </script>
+
+    <script>
+        //var prob = document.getElementById("prob");
+        const gr = new GestureRecognizer();
+
+        async function runExample(file, key, ui) {
+            var ui_gt_class_id = document.getElementById(ui["gt_class_id"]);
+            var ui_gt_class_name = document.getElementById(ui["gt_class_name"]);
+            var ui_py_pred_class_id = document.getElementById(ui["py_pred_class_id"]);
+            var ui_py_pred_class_name = document.getElementById(ui["py_pred_class_name"]);
+            var ui_py_pred_prob = document.getElementById(ui["py_pred_prob"]);
+            var ui_js_pred_class_id = document.getElementById(ui["js_pred_class_id"]);
+            var ui_js_pred_class_name = document.getElementById(ui["js_pred_class_name"]);
+            var ui_js_pred_prob= document.getElementById(ui["js_pred_prob"]);
+
+            // Create an ONNX inference session
+            obj = JSON.parse($.getJSON({ 'url': file, 'async': false }).responseText);
+            y = Math.floor(Math.random() * obj[key].length);
+            ControllerInput = obj[key][y]["controller_data"];
+
+            // Create a new array from controller input data
+            r = await gr.inference(ControllerInput);
+
+			// these are true ground-truth data coming from the annotated dataset
+			gt_class_id = obj[key][y]["gesture_label"];
+			gt_class_name = obj[key][y]["gesture_name"];
+			// these are probabilities of the ONNX model when run from Python
+			py_pred_class_id = obj[key][y]["model_predited_label"]
+			py_pred_class_name = obj["classes"][py_pred_class_id];
+            py_pred_prob  = obj[key][y]["model_probabilities"];
+			//cut each probability to 2 decimals and change it to %
+			py_pred_prob = py_pred_prob.map(make_fixed);
+
+			// these are model predictions for the same instance in JS using the same ONNX model as in python
+            js_pred_class_id = r["class_id"];
+			js_pred_class_name = r["class_name"];
+            js_pred_prob = r["class_probabilities"];
+			//cut each probability to 2 decimals and change it to %
+			js_pred_prob = js_pred_prob.map(make_fixed);
+
+            ui_gt_class_id.innerHTML = "Ground Truth Gesture Class Id: " + gt_class_id;
+            ui_gt_class_name.innerHTML = "Ground Truth Gesture Class Name: " + gt_class_name;
+            ui_py_pred_class_id.innerHTML = "Python predicted Class Id: " + py_pred_class_id;
+            ui_py_pred_class_name.innerHTML = "Python predicted Class Name: " + py_pred_class_name;
+            ui_py_pred_prob.innerHTML = "Python predicted probabilities : " + py_pred_prob;
+            ui_js_pred_class_id.innerHTML = "JS predicted Class Id: " + js_pred_class_id;
+            ui_js_pred_class_name.innerHTML = "JS predicted Class Name: " + js_pred_class_name;
+            ui_js_pred_prob.innerHTML = "JS predicted probabilities:" + js_pred_prob;
+
+            console.log(gt_class_id);
+            console.log(js_pred_class_name);
+            console.log(obj["classes"]);
+            console.log(py_pred_prob);
+        }
+    </script>
+</body>
+</html>

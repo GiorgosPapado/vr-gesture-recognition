@@ -1,0 +1,7 @@
+python: E:/PyEnvs/env_vr_gestures/Scripts/python.exe
+mlflow:
+  mlruns_path: file://G:/aldoum/code/vr-gestures/components/ml/src/mlruns
+dataset:
+  index_file_base_dir: G:/aldoum/code/vr-gestures/components/ml/src/
+  controller_dataset_dir: F:/dataset/vcl3d-controller-gesture-dataset/remove-unused
+  hand_dataset_dir: F:\dataset\vcl3d-hand-gesture-dataset\bin\fixed-labels

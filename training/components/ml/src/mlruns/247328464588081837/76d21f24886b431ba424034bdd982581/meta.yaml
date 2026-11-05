@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/247328464588081837/76d21f24886b431ba424034bdd982581/artifacts
+end_time: 1675074318334
+entry_point_name: ''
+experiment_id: '247328464588081837'
+lifecycle_stage: active
+run_id: 76d21f24886b431ba424034bdd982581
+run_name: loud-stoat-360
+run_uuid: 76d21f24886b431ba424034bdd982581
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675074312293
+status: 3
+tags: []
+user_id: giorgospap

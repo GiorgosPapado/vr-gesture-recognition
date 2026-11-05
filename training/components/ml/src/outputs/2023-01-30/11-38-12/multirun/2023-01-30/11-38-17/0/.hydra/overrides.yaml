@@ -1,0 +1,4 @@
+- classifier.n_estimators=8
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=drcif
+- dataset=controllers-4

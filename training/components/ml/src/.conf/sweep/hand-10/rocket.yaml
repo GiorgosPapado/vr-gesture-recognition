@@ -1,0 +1,26 @@
+defaults:
+  - /classifier: rocket
+
+sweep:
+  budget: 45
+  parameters:
+    # either one or the other
+    classifier.num_kernels: 
+      lower: 5
+      upper: 500
+      integer: true
+
+    classifier.max_dilations_per_kernel:
+      lower: 1
+      upper: 64
+      integer: true
+
+    classifier.n_features_per_kernel:
+      lower: 1
+      upper: 4
+      integer: true
+      
+    preprocess:
+      - - hand-transform
+        - interpolation 
+      

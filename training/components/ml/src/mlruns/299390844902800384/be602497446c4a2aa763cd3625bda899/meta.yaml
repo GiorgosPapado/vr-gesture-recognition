@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/be602497446c4a2aa763cd3625bda899/artifacts
+end_time: 1674825834458
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: be602497446c4a2aa763cd3625bda899
+run_name: rare-boar-39
+run_uuid: be602497446c4a2aa763cd3625bda899
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674825828693
+status: 3
+tags: []
+user_id: giorgospap

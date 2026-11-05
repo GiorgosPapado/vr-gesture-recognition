@@ -1,0 +1,31 @@
+environment:
+  mlflow:
+    mlruns_path: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src
+    controller_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\controller-gesture-dataset\remove-unused
+    hand_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\hand-gesture-dataset\bin\fixed-labels
+random:
+  seed: 42
+dataset:
+  name: controller-8
+  dataset_loader: controller
+  path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+  feature_names:
+  - ControllerPos
+  gesture_names:
+  - I
+  - U
+  - 'INFINITY'
+  - <
+  - O
+  - L
+  - e
+  - M
+actions:
+  to_onnx:
+    sktime_model_file_path: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\mlruns\299390844902800384\5b14969dba7b44088f4c9db97b3b5cca\artifacts\model\model.pkl
+    output_onnx_file_path: .\model.onnx
+    in_features: 3
+  evaluate_onnx:
+    onnx_file_path: .\model.onnx

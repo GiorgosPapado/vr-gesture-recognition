@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/ec8bc74119c84133b6dd68ddc8fda309/artifacts
+end_time: 1675087108787
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: ec8bc74119c84133b6dd68ddc8fda309
+run_name: abrasive-asp-522
+run_uuid: ec8bc74119c84133b6dd68ddc8fda309
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675087104126
+status: 3
+tags: []
+user_id: giorgospap

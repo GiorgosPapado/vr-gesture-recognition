@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/f90aed27e80e47628abaca599740f693/artifacts
+end_time: 1674742644483
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: f90aed27e80e47628abaca599740f693
+run_name: sassy-fawn-658
+run_uuid: f90aed27e80e47628abaca599740f693
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674742638694
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/f1e1d875d0734b0bbe55da7a9f25b6e1/artifacts
+end_time: 1675073113237
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: f1e1d875d0734b0bbe55da7a9f25b6e1
+run_name: burly-sloth-800
+run_uuid: f1e1d875d0734b0bbe55da7a9f25b6e1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675073108743
+status: 3
+tags: []
+user_id: giorgospap

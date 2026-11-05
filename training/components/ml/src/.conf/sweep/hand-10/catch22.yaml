@@ -1,0 +1,13 @@
+defaults:
+  - /classifier: catch22
+sweep:
+  budget: 45
+  parameters:
+    # either one or the other
+    classifier.outlier_norm: 
+      - true
+      - false
+    
+    preprocess:
+      - - hand-transform
+        - interpolation 

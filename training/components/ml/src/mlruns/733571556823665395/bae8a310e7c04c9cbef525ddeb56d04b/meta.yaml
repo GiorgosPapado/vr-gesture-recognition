@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/bae8a310e7c04c9cbef525ddeb56d04b/artifacts
+end_time: 1676561558214
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: bae8a310e7c04c9cbef525ddeb56d04b
+run_name: skillful-ox-222
+run_uuid: bae8a310e7c04c9cbef525ddeb56d04b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1676561551340
+status: 3
+tags: []
+user_id: giorgospap

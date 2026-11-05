@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/630815771856085190/52d8dca1e91e475f999f11da255c6923/artifacts
+end_time: 1675071733261
+entry_point_name: ''
+experiment_id: '630815771856085190'
+lifecycle_stage: active
+run_id: 52d8dca1e91e475f999f11da255c6923
+run_name: beautiful-panda-876
+run_uuid: 52d8dca1e91e475f999f11da255c6923
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675071726788
+status: 3
+tags: []
+user_id: giorgospap

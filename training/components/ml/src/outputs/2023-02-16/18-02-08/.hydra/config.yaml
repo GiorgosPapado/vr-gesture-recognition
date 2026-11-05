@@ -1,0 +1,21 @@
+mlflow:
+  mlruns_path: ${environment.mlflow.mlruns_path}
+environment:
+  mlflow:
+    mlruns_path: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src
+    controller_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\controller-gesture-dataset\remove-unused
+    hand_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\hand-gesture-dataset\bin\fixed-labels
+  python: C:\Users\giorgospap\Desktop\EKETA\INFINITY\PyEnvs\vr_gestures\Scripts\python.exe
+actions:
+- test
+experiments:
+- dataset: controller-4
+  classifiers:
+  - rocket
+  - KNeighborsTimeSeries
+- dataset: lefthand-4
+  classifiers:
+  - rocket
+  - KNeighborsTimeSeries

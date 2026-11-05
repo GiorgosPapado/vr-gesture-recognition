@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/85789eb0549d4e7ca7f2b99b53c946eb/artifacts
+end_time: 1675073605677
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: 85789eb0549d4e7ca7f2b99b53c946eb
+run_name: dashing-fox-978
+run_uuid: 85789eb0549d4e7ca7f2b99b53c946eb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675073600377
+status: 3
+tags: []
+user_id: giorgospap

@@ -1,0 +1,8 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.num_kernels: 4
+  preprocess:
+  - interpolation
+  sweep@_global_: rocket
+  dataset: controllers-4
+best_evaluated_result: 0.6546209509444803

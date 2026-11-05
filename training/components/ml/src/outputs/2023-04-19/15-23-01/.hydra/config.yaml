@@ -1,0 +1,45 @@
+environment:
+  mlflow:
+    mlruns_path: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src
+    controller_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\controller-gesture-dataset\remove-unused
+    hand_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\hand-gesture-dataset\bin\fixed-labels
+random:
+  seed: 42
+mlflow:
+  mlruns_path: ${environment.mlflow.mlruns_path}
+dataset:
+  name: controller-8
+  path_to_dataset_dir: ${environment.dataset.controller_dataset_dir}
+  dataset_loader: controller
+  feature_names:
+  - ControllerPos
+  gesture_names:
+  - I
+  - U
+  - 'INFINITY'
+  - <
+  - O
+  - L
+  - e
+  - M
+  handedness: null
+  train_index_file: ${environment.dataset.index_file_base_dir}\controller_train_split.txt
+  test_index_file: ${environment.dataset.index_file_base_dir}\controller_test_split.txt
+classifier:
+  _target_: sktime.classification.kernel_based.RocketClassifier
+  num_kernels: ${classifier_params.num_kernels}
+  max_dilations_per_kernel: ${classifier_params.max_dilations_per_kernel}
+  n_features_per_kernel: ${classifier_params.n_features_per_kernel}
+preprocess:
+  controller_transform:
+    _target_: utils.preproc.TSControllerTranslationCoordinateTransform
+    position_indices:
+    - 0
+    - 1
+    - 2
+    additional_axis: null
+  tsinterpolation:
+    _target_: sktime.transformations.panel.interpolate.TSInterpolator
+    length: 180

@@ -1,0 +1,30 @@
+classifier_params:
+  initial:
+    num_kernels: 150
+    max_dilations_per_kernel: 10
+    n_features_per_kernel: 3
+
+  lefthand-5:
+    num_kernels: 252
+    max_dilations_per_kernel: 32
+    n_features_per_kernel: 2
+
+  controller-5:
+    num_kernels: 142
+    max_dilations_per_kernel: 46
+    n_features_per_kernel: 3
+
+  #controller-8:
+    #num_kernels: 142
+    #max_dilations_per_kernel: 46
+    #n_features_per_kernel: 3
+
+  controller-10:
+    num_kernels: 155
+    max_dilations_per_kernel: 16
+    n_features_per_kernel: 2
+
+  righthand-5:
+    num_kernels: 329
+    max_dilations_per_kernel: 35
+    n_features_per_kernel: 3

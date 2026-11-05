@@ -1,0 +1,5 @@
+controller_transform:
+  _target_: utils.preproc.TSControllerCoordinateTransform
+  position_indices: [0,1,2]
+  rotation_indices: [3,4,5,6]
+  additional_axis: null #[7]

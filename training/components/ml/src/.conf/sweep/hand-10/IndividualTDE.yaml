@@ -1,0 +1,47 @@
+defaults:
+  - /classifier: IndividualTDE
+
+sweep:
+  budget: 45
+  parameters:
+    # either one or the other
+    classifier.window_size: 
+      lower: 5
+      upper: 20
+      integer: true
+
+    classifier.word_length:
+      lower: 4
+      upper: 10
+      integer: true
+
+    classifier.norm:
+      - true
+      - false
+      
+    classifier.igb:
+      - true
+      - false
+
+    classifier.alphabet_size:
+      lower: 2
+      upper: 10
+      integer: true
+
+    classifier.bigrams:
+      - true
+      - false
+
+    classifier.dim_threshold: 
+      lower: 0.7
+      upper: 1.0
+    
+    classifier.max_dims:
+      lower: 5
+      upper: 30
+      integer: true
+
+    preprocess:
+      - - hand-transform
+        - interpolation 
+      

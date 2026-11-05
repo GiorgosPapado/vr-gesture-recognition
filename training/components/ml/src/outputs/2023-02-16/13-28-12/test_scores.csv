@@ -1,0 +1,5 @@
+test_accuracy,0.8946540880503144
+test_balanced_accuracy,0.8952840035756846
+test_f1_score,0.8936953119818873
+test_precision_score,0.895100782075465
+test_recall_score,0.8946540880503144

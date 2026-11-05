@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/6b366ef8fa1f457baeeb65528fc679cf/artifacts
+end_time: 1674740937079
+entry_point_name: ''
+experiment_id: '299390844902800384'
+lifecycle_stage: active
+run_id: 6b366ef8fa1f457baeeb65528fc679cf
+run_name: luminous-eel-698
+run_uuid: 6b366ef8fa1f457baeeb65528fc679cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674740934485
+status: 3
+tags: []
+user_id: giorgospap

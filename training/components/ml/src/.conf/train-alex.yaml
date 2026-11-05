@@ -1,0 +1,13 @@
+defaults:  
+  - environment: alex
+  - random: rand
+  - nevergrad@_global_: 
+        - common
+        - nevergrad
+  # - sweep/controller-5@_global_: rocket
+  - mlflow: mlflow
+  # - dataset: controller-5
+  - preprocess:    
+    - controller-transform
+    - interpolation 
+  - _self_ 

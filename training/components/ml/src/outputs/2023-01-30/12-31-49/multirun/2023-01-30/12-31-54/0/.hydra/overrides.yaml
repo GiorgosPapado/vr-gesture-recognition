@@ -1,0 +1,4 @@
+- classifier.dim_threshold=35
+- preprocess=['identity', 'interpolation']
+- sweep@_global_=IndividualTDE
+- dataset=controllers-4

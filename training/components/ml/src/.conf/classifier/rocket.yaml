@@ -1,0 +1,6 @@
+_target_: sktime.classification.kernel_based.RocketClassifier
+#num_kernels: 10
+num_kernels: ${classifier_params.num_kernels}
+max_dilations_per_kernel: ${classifier_params.max_dilations_per_kernel}
+n_features_per_kernel: ${classifier_params.n_features_per_kernel}
+#n_features_per_kernel: 20

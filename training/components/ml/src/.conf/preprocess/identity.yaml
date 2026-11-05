@@ -1,0 +1,2 @@
+identity:
+  _target_: sktime.transformations.compose.Id

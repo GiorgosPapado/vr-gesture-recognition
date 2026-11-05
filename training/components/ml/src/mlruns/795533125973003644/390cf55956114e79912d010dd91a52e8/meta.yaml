@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/390cf55956114e79912d010dd91a52e8/artifacts
+end_time: 1675072652875
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: 390cf55956114e79912d010dd91a52e8
+run_name: upbeat-moth-856
+run_uuid: 390cf55956114e79912d010dd91a52e8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675072648438
+status: 3
+tags: []
+user_id: giorgospap

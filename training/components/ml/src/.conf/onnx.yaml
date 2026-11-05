@@ -1,0 +1,13 @@
+defaults:  
+  - environment: george
+  - random: rand    
+  - dataset: controller-8
+  - _self_
+
+actions:
+  # to_onnx:
+  #   sktime_model_file_path: C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/299390844902800384/279b07cd0e924c358f570ca9f721fcc6/artifacts/model/model.pkl
+  #   output_onnx_file_path: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\model.onnx
+  #   in_features: 3
+  evaluate_onnx:
+    onnx_file_path: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\model.onnx

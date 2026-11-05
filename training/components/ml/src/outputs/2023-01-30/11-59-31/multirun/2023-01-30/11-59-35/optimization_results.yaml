@@ -1,0 +1,8 @@
+name: nevergrad
+best_evaluated_params:
+  classifier.dim_threshold: 65
+  preprocess:
+  - interpolation
+  sweep@_global_: IndividualTDE
+  dataset: controllers-4
+best_evaluated_result: 0.2590278900021547

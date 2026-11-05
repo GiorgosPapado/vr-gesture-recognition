@@ -1,0 +1,16 @@
+name: righthand-5
+dataset_loader: hand
+path_to_dataset_dir: ${environment.dataset.hand_dataset_dir}
+feature_names:
+  - GlobalHandPos
+  - HandPos
+  - Time
+gesture_names:
+  - RightInfinity
+  - RightScroll
+  - RightBack
+  - RightGrab
+  - RightPoint
+  
+train_index_file: ${environment.dataset.index_file_base_dir}\hand_train_split.txt  
+test_index_file: ${environment.dataset.index_file_base_dir}\hand_test_split.txt

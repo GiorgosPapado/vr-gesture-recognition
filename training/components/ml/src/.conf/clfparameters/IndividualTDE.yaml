@@ -1,0 +1,39 @@
+initial:
+  window_size: 10
+  word_length: 8
+  norm: false
+  igb: false
+  alphabet_size: 4
+  bigrams: true
+  dim_threshold: 0.85
+  max_dims: 20
+
+controller-5:
+  window_size: 11
+  word_length: 6
+  norm: false
+  igb: false
+  alphabet_size: 5
+  bigrams: false
+  dim_threshold: 0.824307378087307
+  max_dims: 14
+
+controller-10:
+  window_size: 15
+  word_length: 7
+  norm: false
+  igb: false
+  alphabet_size: 5
+  bigrams: true
+  dim_threshold: 0.9248853509991039
+  max_dims: 21
+
+righthand-5:
+  window_size: 14
+  word_length: 6
+  norm: false
+  igb: true
+  alphabet_size: 7
+  bigrams: true
+  dim_threshold: 0.7001819776357385
+  max_dims: 12

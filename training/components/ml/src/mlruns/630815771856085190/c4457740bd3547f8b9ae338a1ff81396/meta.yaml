@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/630815771856085190/c4457740bd3547f8b9ae338a1ff81396/artifacts
+end_time: 1675075871562
+entry_point_name: ''
+experiment_id: '630815771856085190'
+lifecycle_stage: active
+run_id: c4457740bd3547f8b9ae338a1ff81396
+run_name: omniscient-stag-505
+run_uuid: c4457740bd3547f8b9ae338a1ff81396
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675075866892
+status: 3
+tags: []
+user_id: giorgospap

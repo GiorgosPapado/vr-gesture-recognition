@@ -1,0 +1,15 @@
+mlflow:
+  mlruns_path: ${environment.mlflow.mlruns_path}
+environment:
+  python: C:\Users\giorgospap\Desktop\EKETA\INFINITY\PyEnvs\vr_gestures\Scripts\python.exe
+actions:
+- test
+experiments:
+- dataset: controller-4
+  classifiers:
+  - rocket
+  - KNeighborsTimeSeries
+- dataset: lefthand-4
+  classifiers:
+  - rocket
+  - KNeighborsTimeSeries

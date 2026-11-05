@@ -1,0 +1,46 @@
+environment:
+  mlflow:
+    mlruns_path: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns
+  dataset:
+    index_file_base_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\
+    controller_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\Alex Folder\Gestures
+    hand_dataset_dir: C:\Users\giorgospap\Desktop\EKETA\INFINITY\hand-gesture-dataset\bin\fixed-labels
+random:
+  seed: 42
+sweep:
+  optimizer: NGO
+  budget: 7
+  num_workers: 3
+  parameters:
+    classifier.n_neighbors:
+      lower: 10
+      upper: 50
+      integer: true
+    preprocess:
+    - - interpolation
+    - - identity
+      - interpolation
+classifier:
+  _target_: sktime.classification.distance_based.KNeighborsTimeSeriesClassifier
+  n_neighbors: 36
+mlflow:
+  mlruns_path: ${environment.mlflow.mlruns_path}
+dataset:
+  train_size: 0.7
+  path_to_dataset_dir: ${environment.dataset.hand_dataset_dir}
+  feature_names:
+  - LeftHandPos
+  - timestamps
+  index_file: ${environment.dataset.index_file_base_dir}bin_hand_train_split.txt
+  gesture_names:
+  - LeftInfinity
+  - LeftOpenPalm
+  - LeftRotate
+  - LeftGrab
+  test_file: ${environment.dataset.index_file_base_dir}bin_hand_test_split.txt
+preprocess:
+  identity:
+    _target_: sktime.transformations.compose.Id
+  tsinterpolation:
+    _target_: sktime.transformations.panel.interpolate.TSInterpolator
+    length: 120

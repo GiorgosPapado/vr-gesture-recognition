@@ -1,0 +1,7 @@
+sweep:
+  optimizer: NGOpt
+  budget: 2
+  num_workers: 1
+
+hyopt:
+  monitor_metric: 'balanced_accuracy'

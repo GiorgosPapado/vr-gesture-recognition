@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/6008c1b3c9e64f909acc094e406f0533/artifacts
+end_time: 1675350555470
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: 6008c1b3c9e64f909acc094e406f0533
+run_name: bemused-shoat-912
+run_uuid: 6008c1b3c9e64f909acc094e406f0533
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675350549310
+status: 3
+tags: []
+user_id: giorgospap

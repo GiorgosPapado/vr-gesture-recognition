@@ -1,0 +1,322 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Generate Controller Dataset Splits - George",
+            "type": "python",
+            "request": "launch",
+            "program": "dataset_splits_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_dataset_dir",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused",
+                "--gesture_names",
+                "I",
+                "O",
+                "L",
+                "V",
+                "--out_path_to_train_split_txt","./controller_train_split.txt",
+                "--out_path_to_test_split_txt","./controller_test_split.txt",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+        {
+            "name": "Generate Hand Dataset Splits - George",
+            "type": "python",
+            "request": "launch",
+            "program": "dataset_splits_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_dataset_dir",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "--gesture_names",
+                "LeftInfinity",
+                "LeftOpenPalm",
+                "LeftRotate",
+                "LeftGrab",
+                "--out_path_to_train_split_txt","./hand_train_split.txt",
+                "--out_path_to_test_split_txt","./hand_test_split.txt",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+
+        {
+            "name": "Generate Controller Dataset - Alex",
+            "type": "python",
+            "request": "launch",
+            "program": "controller_dataset_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_controller_dataset_dir",
+                "F:\\dataset\\vcl3d-vr-controller-gestures",
+                "--gesture_names",
+                "I",
+                "O",
+                "L",
+                "V",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+        {
+            "name": "Train Multirun",
+            "type": "python",
+            "request": "launch",
+            "program": "train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "-m"
+            ]
+        },
+        {
+            "name": "Train",
+            "type": "python",
+            "request": "launch",
+            "program": "train.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--config-name","train-alex"
+            ]
+        },    
+        {
+            "name": "Benchmark",
+            "type": "python",
+            "request": "launch",
+            "program": "bench.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--config-name","bench-controller"
+            ]
+        },
+        {
+            "name": "Benchmark Test",
+            "type": "python",
+            "request": "launch",
+            "program": "bench.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--config-name","bench-all"
+            ]
+        },
+        {
+            "name": "Evaluation",
+            "type": "python",
+            "request": "launch",
+            "program": "evaluation.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Generate Hand Dataset Splits - George",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_hand_dataset_dir",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "--gesture_names",
+                "LeftInfinity",
+                "LeftOpenPalm",
+                "LeftRotate",
+                "LeftGrab",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+        {
+            "name": "Generate Controller Dataset Splits - Alex",
+            "type": "python",
+            "request": "launch",
+            "program": "dataset_splits_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_dataset_dir",
+                "F:\\dataset\\vcl3d-controller-gesture-dataset\\remove-unused",
+                "--out_path_to_train_split_txt","controller_train_split.txt",
+                "--out_path_to_test_split_txt","controller_test_split.txt",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+        {
+            "name": "Generate Hand Dataset Splits - Alex",
+            "type": "python",
+            "request": "launch",
+            "program": "dataset_splits_gen.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--path_to_dataset_dir",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\fixed-labels",
+                "--out_path_to_train_split_txt","hand_train_split.txt",
+                "--out_path_to_test_split_txt","hand_test_split.txt",
+                "--train_size",
+                "0.7",
+                "--random_state",
+                "0"
+            ]
+        },
+        {
+            "name": "Preproc: Hand dataset JSON->BIN | Convert",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "convert",
+                "--hand_dataset_source_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\json",
+                "--hand_dataset_destination_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\original",
+                "--hand_dataset_filter_json_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\hand_gestures_filter.json"
+            ]
+        },
+        {
+            "name": "Preproc: Hand dataset JSON->BIN | Convert | Alex",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "convert",
+                "--hand_dataset_source_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\json",
+                "--hand_dataset_destination_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\original2",
+                "--hand_dataset_filter_json_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\meta\\hand_gestures_filter.json"
+            ]
+        },
+        {
+            "name": "Preproc: Hand dataset | FixLabels",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "fix-labels",
+                "--hand_dataset_bin_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\original2",
+                "--hand_dataset_output_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "--class_label_map_file_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\hand_class_label_map.csv"
+            ]
+        },
+        {
+            "name": "Preproc: Hand dataset | FixLabels | Alex",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "fix-labels",
+                "--hand_dataset_bin_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\original2",
+                "--hand_dataset_output_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\fixed-labels2",
+                "--class_label_map_file_path",
+                "F:\\dataset\\vcl3d-hand-gesture-dataset\\meta\\hand_class_label_map.csv"
+            ]
+        },
+        {
+            "name": "Preproc: Hand dataset  | Build index",
+            "type": "python",
+            "request": "launch",
+            "program": "hand_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "build-index-meta",
+                "--hand_dataset_bin_path",
+                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "--index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\index.csv",
+                "--detailed_index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\detailed_index.csv"
+                
+            ]
+        },
+        {
+            "name": "Preproc: Controller dataset | Remove unused controller",
+            "type": "python",
+            "request": "launch",
+            "program": "controller_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "remove-unused-controller",
+                "--controller_dataset_source_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\original",
+                "--controller_dataset_destination_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused"
+            ]
+        },
+        {
+            "name": "Preproc: Controller dataset | Build index",
+            "type": "python",
+            "request": "launch",
+            "program": "controller_dataset_transform.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "build-index-meta",
+                "--controller_dataset_source_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused",
+                "--index_meta_output_file_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\meta\\index.csv",
+                "--detailed_index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\meta\\detailed_index.csv"
+            ]
+        },
+        {
+            "name": "Test",
+            "type": "python",
+            "request": "launch",
+            "program": "test.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args" : [
+                "+clfparameters/controller-8@_global_=rocket"
+            ]
+        },
+        {
+            "name": "ONNX",
+            "type": "python",
+            "request": "launch",
+            "program": "onnx.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args" : [
+            ]
+        },
+    ]
+}

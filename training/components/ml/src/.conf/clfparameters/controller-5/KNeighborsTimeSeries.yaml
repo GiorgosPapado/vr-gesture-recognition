@@ -1,0 +1,6 @@
+classifier_params:
+  n_neighbors: 9
+  weights: uniform
+  algorithm: brute
+  distance: euclidean
+  leaf_size: 20

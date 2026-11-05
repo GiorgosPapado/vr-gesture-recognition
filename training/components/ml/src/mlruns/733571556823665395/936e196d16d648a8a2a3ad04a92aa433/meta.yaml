@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/733571556823665395/936e196d16d648a8a2a3ad04a92aa433/artifacts
+end_time: 1675343570735
+entry_point_name: ''
+experiment_id: '733571556823665395'
+lifecycle_stage: active
+run_id: 936e196d16d648a8a2a3ad04a92aa433
+run_name: puzzled-turtle-210
+run_uuid: 936e196d16d648a8a2a3ad04a92aa433
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675343564708
+status: 3
+tags: []
+user_id: giorgospap

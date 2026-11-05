@@ -1,0 +1,15 @@
+artifact_uri: file://C:/Users/giorgospap/Desktop/EKETA/INFINITY/vr-gestures/components/ml/src/mlruns/795533125973003644/50c29b6cd98746f3963da77c28821834/artifacts
+end_time: 1675072977655
+entry_point_name: ''
+experiment_id: '795533125973003644'
+lifecycle_stage: active
+run_id: 50c29b6cd98746f3963da77c28821834
+run_name: unruly-snipe-29
+run_uuid: 50c29b6cd98746f3963da77c28821834
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1675072972958
+status: 3
+tags: []
+user_id: giorgospap
