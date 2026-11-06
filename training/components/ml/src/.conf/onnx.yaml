@@ -1,5 +1,5 @@
 defaults:  
-  - environment: george
+  - environment: local
   - random: rand    
   - dataset: controller-8
   - _self_

@@ -1,5 +1,5 @@
 defaults:  
-  - environment: alex
+  - environment: local
   - random: rand    
   - mlflow: mlflow
   #- dataset: controller-5

@@ -1,5 +1,5 @@
 defaults:
-  - environment: george
+  - environment: local
   - _self_
 
 validation: true

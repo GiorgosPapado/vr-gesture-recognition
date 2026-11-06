@@ -1,5 +1,5 @@
 defaults:  
-  - environment: george
+  - environment: local
   - random: rand
   - nevergrad@_global_: 
         - common

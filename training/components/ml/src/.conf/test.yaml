@@ -1,5 +1,5 @@
 defaults:  
-  - environment: george
+  - environment: local
   - random: rand    
   - mlflow: mlflow
   - dataset: controller-8
