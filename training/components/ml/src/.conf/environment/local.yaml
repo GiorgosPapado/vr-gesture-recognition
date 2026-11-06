@@ -1,0 +1,10 @@
+# Machine-specific settings. Override via environment variables, e.g.
+#   VRG_PYTHON, VRG_SRC_DIR, VRG_CONTROLLER_DATASET_DIR, VRG_HAND_DATASET_DIR
+# or on the command line: environment.dataset.controller_dataset_dir=/path
+python: ${oc.env:VRG_PYTHON,python}
+mlflow:
+  mlruns_path: file://${oc.env:VRG_SRC_DIR,.}/mlruns
+dataset:
+  index_file_base_dir: ${oc.env:VRG_SRC_DIR,.}
+  controller_dataset_dir: ${oc.env:VRG_CONTROLLER_DATASET_DIR,PATH/TO/controller-gesture-dataset}
+  hand_dataset_dir: ${oc.env:VRG_HAND_DATASET_DIR,PATH/TO/hand-gesture-dataset}
