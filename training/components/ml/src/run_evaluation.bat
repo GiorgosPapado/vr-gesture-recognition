@@ -1,1 +1,1 @@
-python.exe evaluation.py -m
+python.exe test.py -m

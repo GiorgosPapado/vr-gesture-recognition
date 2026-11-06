@@ -45,7 +45,8 @@ cd training/components/ml/src
 export VRG_CONTROLLER_DATASET_DIR=/path/to/controller-gesture-dataset
 python train.py --config-name train-all -m
 ```
-- `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `test.py`; `onnx.py`). See the `run_*.bat` scripts for Windows examples.
+- `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `test.py` (default config `test`, used by `run_evaluation.bat`; `evaluation.py` is an empty placeholder); `onnx.py` and `test_onnx.py` (default config `onnx`); `bench.py` defaults to `bench-all`). See the `run_*.bat` scripts for Windows examples.
+- `.vscode/launch.json` reads dataset locations from `VRG_DATASET_ROOT_A` (root holding `controller-gesture-dataset/` and `hand-gesture-dataset/`) and `VRG_DATASET_ROOT_B` (root holding the `vcl3d-*` datasets, e.g. `vcl3d-hand-gesture-dataset/`). Set both before using those launch configurations.
 - Dataset format and download location: TODO.
 - Sweep results and ONNX export workflow: TODO.
 - Run outputs (`mlruns/`, `multirun/`) are git-ignored.

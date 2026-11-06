@@ -125,7 +125,7 @@
             "name": "Evaluation",
             "type": "python",
             "request": "launch",
-            "program": "evaluation.py",
+            "program": "test.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
