@@ -10,7 +10,7 @@ Real-time VR controller gesture recognition: train a model in Python, export it 
 unity/      Unity package (CERTH gestures update.unitypackage), C# scripts, gesture legend prefab
 webxr/      browser version: gesture_engine.js, index.html, webxr_vr_paint.html, example data
 training/   Hydra + Nevergrad hyperparameter search and sktime benchmarks (components/, research-report.md)
-models/     exported ONNX models (vr-controller-gestrec-ext-wneg.onnx, pyrocket2.onnx, pyrocket3.onnx)
+unity-webxr-bridge/  Unity-to-WebXR bridge samples: ML.NET/ONNX inference script, JS gesture engine, JS integration page, example data and ONNX models
 docs/       VRController-Gesture Recognition.docx
 ```
 
@@ -18,7 +18,7 @@ docs/       VRController-Gesture Recognition.docx
 
 ### Unity
 1. Import `unity/CERTH gestures update.unitypackage` into your project.
-2. Add `VRControllerGestureInput` to your controller object and assign the ONNX model from `models/`.
+2. Add `VRControllerGestureInput` to your controller object and assign the ONNX model `unity/vr-controller-gestrec-ext-wneg.onnx`.
 3. TODO: Unity version, XR plugin requirements, ML.NET/ONNX runtime package versions.
 
 ### WebXR / browser
@@ -39,8 +39,10 @@ Gesture set shown in `unity/` legend images. Recognition is based on the control
 
 | File | Used by | Notes |
 |---|---|---|
-| vr-controller-gestrec-ext-wneg.onnx | Unity | TODO: classes, input shape, accuracy |
-| pyrocket2.onnx / pyrocket3.onnx | WebXR | TODO |
+| unity/vr-controller-gestrec-ext-wneg.onnx | Unity | TODO: classes, input shape, accuracy |
+| webxr/pyrocket3.onnx | WebXR | TODO |
+| unity-webxr-bridge/pyrocket2.onnx | bridge samples | TODO: purpose and differences from pyrocket3 |
+| unity-webxr-bridge/vr-controller-gestrec-ext-wneg.onnx | bridge samples | same file name as the Unity model but contents differ (binary compare); TODO: document the difference |
 
 ## Research notes
 
