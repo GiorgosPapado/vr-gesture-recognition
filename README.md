@@ -29,7 +29,26 @@ npx light-server -s . -p 8080
 Open http://localhost:8080/ in a WebXR-capable browser. (`npx` ships with npm; no separate install needed.)
 
 ### Training
-TODO: how to run the Hydra/Nevergrad sweep and export ONNX.
+Run from `training/components/ml/src` (Hydra configs live in `conf/`).
+
+Install dependencies, including the vendored Nevergrad sweeper (an edited copy of the PyPI archive, patched for numpy/nevergrad version incompatibilities):
+```bash
+cd training/components/ml
+pip install -r requirements.txt
+pip install deps/hydra-nevergrad-sweeper-1.2.0.tar
+```
+
+Machine-specific settings come from `conf/environment/local.yaml`, overridable through environment variables:
+`VRG_PYTHON`, `VRG_SRC_DIR` (also the MLflow `mlruns` location), `VRG_CONTROLLER_DATASET_DIR`, `VRG_HAND_DATASET_DIR`.
+```bash
+cd training/components/ml/src
+export VRG_CONTROLLER_DATASET_DIR=/path/to/controller-gesture-dataset
+python train.py --config-name train-all -m
+```
+- `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `test.py`; `onnx.py`). See the `run_*.bat` scripts for Windows examples.
+- Dataset format and download location: TODO.
+- Sweep results and ONNX export workflow: TODO.
+- Run outputs (`mlruns/`, `multirun/`) are git-ignored.
 
 ## Gestures
 

@@ -53,7 +53,7 @@ def evaluate_model(cfg, **kwargs):
 
 
 
-@hydra.main(version_base = None, config_path='./.conf',config_name='onnx')
+@hydra.main(version_base = None, config_path='./conf',config_name='onnx')
 def main(
     cfg: DictConfig
 ):   

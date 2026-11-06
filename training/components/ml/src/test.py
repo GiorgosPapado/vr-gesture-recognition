@@ -15,7 +15,7 @@ from utils.dataset import load_dataset, balance_dataset
 import pandas as pd
 from utils.preproc import TSControllerTranslationCoordinateTransform
 
-@hydra.main(version_base = None, config_path='./.conf',config_name='test')
+@hydra.main(version_base = None, config_path='./conf',config_name='test')
 def main(
     cfg: DictConfig
 ):

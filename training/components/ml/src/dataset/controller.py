@@ -260,8 +260,17 @@ def load_dataset(path_to_dataset_dir : str,
 
 if __name__ == "__main__":
 
+    import argparse
+    parser = argparse.ArgumentParser(description='Load a controller gesture dataset (smoke test).')
+    parser.add_argument('--dataset-dir',
+                        default=os.environ.get('VRG_CONTROLLER_DATASET_DIR'),
+                        help='Controller dataset directory (default: $VRG_CONTROLLER_DATASET_DIR)')
+    args = parser.parse_args()
+    if not args.dataset_dir:
+        parser.error('provide --dataset-dir or set VRG_CONTROLLER_DATASET_DIR')
+
     ds = load_dataset(
-        path_to_dataset_dir=r'C:/Users/giorgospap/Desktop/EKETA/INFINITY/controller-gesture-dataset/remove-unused',
+        path_to_dataset_dir=args.dataset_dir,
         feature_names=['ControllerPos','ControllerOrientation'],
         gesture_names=['I','U','INFINITY', 'LessThan','O','L', 'e', 'M'],
         ##handedness='right',

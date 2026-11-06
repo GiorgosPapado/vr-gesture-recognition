@@ -54,7 +54,7 @@ def evaluate_onnx(cfg, onnx_file_path: str):
 
     write_scores(scores, os.path.join(HydraConfig.get().runtime.output_dir,'test_scores_onnx.csv')) 
 
-@hydra.main(version_base = None, config_path='./.conf',config_name='onnx')
+@hydra.main(version_base = None, config_path='./conf',config_name='onnx')
 def main(
     cfg: DictConfig
 ):   

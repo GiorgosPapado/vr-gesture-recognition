@@ -40,7 +40,7 @@ def do_test(cfg: DictConfig):
                 )
                 pbar.update()
 
-@hydra.main(version_base = None, config_path='.conf',config_name='bench')
+@hydra.main(version_base = None, config_path='./conf',config_name='bench')
 def main(cfg : DictConfig):
     if 'train' in cfg:
         do_train(cfg)
