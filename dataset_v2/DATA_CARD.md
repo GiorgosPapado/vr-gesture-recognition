@@ -81,3 +81,40 @@ deterministic seed scan so that every class appears in every split. See `splits.
 - TODO(author): relation to the Zenodo v1 record (doi 10.5281/zenodo.8027807, a different set: 15 controller + 11 per
   hand + 2 two-handed gestures).
 - TODO(author): year of the recordings and meaning of the check-file procedure (who/how recordings were verified).
+
+## From the CGI 2023 paper (about v1; NOT verified for this JSON v2 set)
+
+Source: Papadopoulos, Doumanoglou, Zarpalas, CGI 2023 (LNCS); dataset DOI 10.5281/zenodo.8027807. These facts
+describe the published v1 and were supplied by the coordinator; none of them is checked against the v2 files. The v2
+`TODO(author)` items above stay open until the author confirms what applies to v2.
+
+- Device Meta Quest 2; Unity3D (left-handed coordinate system). Two Unity recording apps: controller app (SteamVR SDK)
+  and hand app (Meta Oculus Integration + Voice SDK: a spoken predefined word starts and another stops recording; a
+  voice command can erase a recording).
+- Hand skeleton: 24 joints per hand (Oculus SDK); positions and orientation quaternions per joint, per hand as a
+  whole and for the HMD, plus per-frame timestamps. One-handed recordings leave the other hand's array empty.
+  v1 is stored as .bin files holding numpy arrays. Left-hand gestures mirror right-hand gestures.
+- Participants were asked to repeat each gesture slightly differently. Recordings were reviewed with animation tools
+  and only those not resembling the target gesture were removed (momentary HMD tracking loss was kept).
+- v1 hand set: 34 subjects (25 right-handed, 9 left-handed), 11 one-handed gestures per hand + 2 two-handed;
+  averages 307 samples/gesture right, 226 left, 266 both-handed. v1 controller set: 16 subjects (12 right, 4 left),
+  15 classes, about 570 samples/class right-handed and about 120 left; anonymous sampling (not matchable to subjects).
+  The hand set stored a subject id.
+- Participants: computer-science related, age 25-40, little or no previous VR hand-tracking experience; "All
+  participants were informed of the procedures and signed an informed consent form". Funding: H2020 EC project
+  INFINITY, grant 883293.
+- Paper benchmark (sktime Catch22, IndividualTDE, KNeighborsTimeSeries, Rocket; interpolation to 180 timestamps;
+  translation invariance by subtracting frame 0; 70/30 split with 5-fold CV): on the 5-gesture right-hand subset
+  accuracy Catch22 0.753, Rocket 0.692, IndividualTDE 0.559, KNN 0.368. That subset is Infinity, Scroll, Back, Grab,
+  Point; it can be selected from the v2 manifest for a rough comparison, but protocols differ (session-grouped
+  split here, different features and classifiers), so numbers are not directly comparable. Not implemented as a
+  baseline option yet.
+
+### Subject / participant field in the v2 JSON files
+
+Checked a random sample of 500 included recordings: top-level keys are always `class_ID`, `class_name`, `frameData`;
+`frameData` keys always `hmd`, `left_hand`, `left_hand_global`, `right_hand`, `right_hand_global`, `timestamps`; hand
+frames only `pos` and `rotation`. No subject / participant field was found (not every file was parsed, but the schema
+was uniform in the sample). Participant-wise splits are therefore not possible from the files; the 7-character hash
+in the session folder name and the 5-character token in each file name are not documented as subject ids
+(TODO(author): say whether the session hash corresponds to a participant).
