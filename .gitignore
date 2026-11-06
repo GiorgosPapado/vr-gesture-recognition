@@ -6,3 +6,9 @@ UserSettings/
 .venv/
 __pycache__/
 .ipynb_checkpoints/
+
+# VRGestures v2: never commit recordings or exported arrays
+*.npz
+*.npy
+dataset_v2/**/*.npz
+dataset_v2/data/

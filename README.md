@@ -51,6 +51,20 @@ python train.py --config-name train-all -m
 - Sweep results and ONNX export workflow: TODO.
 - Run outputs (`mlruns/`, `multirun/`) are git-ignored.
 
+## VRGestures v2 dataset tooling (`dataset_v2/`)
+
+Manifest, loader, session-grouped splits and baselines for the cleaned hand-gesture set (24 classes: 11 gestures per hand + Teleportation + Zoom). **No recordings are stored in this repository** (npz/data are git-ignored); `dataset_v2/` holds only code and derived metadata (`manifest.csv`, `splits.csv`, summaries). See `dataset_v2/DATA_CARD.md`.
+
+```bash
+python -m dataset_v2.build_manifest --recordings-root <.../Gestures> --check-file <check.json>   # or VRG_V2_RECORDINGS_ROOT / VRG_V2_CHECK_FILE
+python -m dataset_v2.splits
+python -m dataset_v2.loader --recordings-root <.../Gestures> --out <outside-repo>/vrgestures_v2.npz --workers 4
+python -m dataset_v2.baselines --npz <outside-repo>/vrgestures_v2.npz
+python -m pytest -q dataset_v2
+```
+
+Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included; `false` and unchecked recordings are excluded. **Not verified / unknown** (marked `TODO(author)` in the data card): headset and tracking SDK, capture protocol, number of participants, consent/ethics, licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy for participants.
+
 ## Gestures
 
 Gesture set shown in `unity/` legend images. Recognition is based on the controller trajectory (see `GestureType.cs`).
