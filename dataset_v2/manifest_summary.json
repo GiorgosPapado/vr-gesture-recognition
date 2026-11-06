@@ -1,0 +1,663 @@
+{
+  "n_rows": 7907,
+  "n_on_disk": 7872,
+  "n_check_entries": 7460,
+  "n_included": 7158,
+  "n_on_disk_in_check_file": 7425,
+  "n_on_disk_not_in_check_file": 447,
+  "exclusion_reasons": {
+    "excluded_folder": 26,
+    "flagged_false": 241,
+    "unchecked": 447,
+    "not_found_on_disk": 35
+  },
+  "n_distinct_raw_class_tokens": 50,
+  "n_canonical_classes_in_included": 24,
+  "included_per_class": {
+    "LeftClick": 275,
+    "LeftClose": 283,
+    "LeftGrab": 284,
+    "LeftHome": 263,
+    "LeftInfinity": 292,
+    "LeftOpenPalm": 290,
+    "LeftPush": 266,
+    "LeftRotate": 273,
+    "LeftPoint": 268,
+    "LeftScroll": 272,
+    "LeftBack": 282,
+    "RightClick": 318,
+    "RightClose": 344,
+    "RightGrab": 353,
+    "RightHome": 327,
+    "RightInfinity": 354,
+    "RightOpenPalm": 333,
+    "RightPush": 326,
+    "RightRotate": 342,
+    "RightPoint": 327,
+    "RightScroll": 321,
+    "RightBack": 322,
+    "Teleportation": 174,
+    "Zoom": 269
+  },
+  "per_class_all_outcomes": {
+    "LeftClick": {
+      "included": 275,
+      "flagged_false": 16,
+      "unchecked": 30,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftClose": {
+      "included": 283,
+      "flagged_false": 0,
+      "unchecked": 26,
+      "not_found_on_disk": 12,
+      "excluded_folder": 1
+    },
+    "LeftGrab": {
+      "included": 284,
+      "flagged_false": 7,
+      "unchecked": 26,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftHome": {
+      "included": 263,
+      "flagged_false": 14,
+      "unchecked": 25,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftInfinity": {
+      "included": 292,
+      "flagged_false": 0,
+      "unchecked": 24,
+      "not_found_on_disk": 13,
+      "excluded_folder": 1
+    },
+    "LeftOpenPalm": {
+      "included": 290,
+      "flagged_false": 11,
+      "unchecked": 33,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftPush": {
+      "included": 266,
+      "flagged_false": 10,
+      "unchecked": 27,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftRotate": {
+      "included": 273,
+      "flagged_false": 25,
+      "unchecked": 22,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftPoint": {
+      "included": 268,
+      "flagged_false": 13,
+      "unchecked": 27,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftScroll": {
+      "included": 272,
+      "flagged_false": 25,
+      "unchecked": 25,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "LeftBack": {
+      "included": 282,
+      "flagged_false": 10,
+      "unchecked": 28,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightClick": {
+      "included": 318,
+      "flagged_false": 13,
+      "unchecked": 11,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightClose": {
+      "included": 344,
+      "flagged_false": 0,
+      "unchecked": 11,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightGrab": {
+      "included": 353,
+      "flagged_false": 10,
+      "unchecked": 14,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightHome": {
+      "included": 327,
+      "flagged_false": 23,
+      "unchecked": 17,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightInfinity": {
+      "included": 354,
+      "flagged_false": 0,
+      "unchecked": 12,
+      "not_found_on_disk": 10,
+      "excluded_folder": 1
+    },
+    "RightOpenPalm": {
+      "included": 333,
+      "flagged_false": 13,
+      "unchecked": 10,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightPush": {
+      "included": 326,
+      "flagged_false": 5,
+      "unchecked": 15,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightRotate": {
+      "included": 342,
+      "flagged_false": 0,
+      "unchecked": 10,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightPoint": {
+      "included": 327,
+      "flagged_false": 9,
+      "unchecked": 15,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightScroll": {
+      "included": 321,
+      "flagged_false": 19,
+      "unchecked": 11,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "RightBack": {
+      "included": 322,
+      "flagged_false": 12,
+      "unchecked": 17,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "Teleportation": {
+      "included": 174,
+      "flagged_false": 0,
+      "unchecked": 0,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    },
+    "Zoom": {
+      "included": 269,
+      "flagged_false": 6,
+      "unchecked": 11,
+      "not_found_on_disk": 0,
+      "excluded_folder": 1
+    }
+  },
+  "included_per_hand": {
+    "left": 3048,
+    "right": 3667,
+    "both": 443
+  },
+  "check_value_counts_on_disk": {
+    "True": 7184,
+    "False": 241
+  },
+  "n_sessions": 58,
+  "sessions": {
+    "(root)": {
+      "excluded_folder": 26,
+      "total": 26
+    },
+    "033bf07 October 16 42": {
+      "included": 102,
+      "flagged_false": 12,
+      "total": 114
+    },
+    "04fa603 October 12 43": {
+      "included": 3,
+      "total": 3
+    },
+    "08feb11 October 10 36": {
+      "included": 126,
+      "flagged_false": 3,
+      "total": 129
+    },
+    "15a5a05 October 15 58": {
+      "included": 108,
+      "flagged_false": 2,
+      "total": 110
+    },
+    "1743006 October 08 54": {
+      "included": 13,
+      "flagged_false": 1,
+      "total": 14
+    },
+    "1975607 October 11 37": {
+      "included": 121,
+      "flagged_false": 4,
+      "total": 125
+    },
+    "1b6d606 October 12 00": {
+      "included": 498,
+      "flagged_false": 12,
+      "total": 510
+    },
+    "1e5c705 October 15 37": {
+      "included": 123,
+      "flagged_false": 8,
+      "total": 131
+    },
+    "231a910 October 16 58": {
+      "included": 111,
+      "flagged_false": 3,
+      "total": 114
+    },
+    "2e12d03 October 12 57": {
+      "included": 181,
+      "flagged_false": 3,
+      "total": 184
+    },
+    "3411111 October 12 21": {
+      "included": 130,
+      "total": 130
+    },
+    "3598428 September 10 38": {
+      "included": 25,
+      "total": 25
+    },
+    "3874c29 September 14 39": {
+      "included": 36,
+      "total": 36
+    },
+    "3c3b830 September 08 52": {
+      "included": 9,
+      "total": 9
+    },
+    "3f8f813 October 10 42": {
+      "unchecked": 124,
+      "total": 124
+    },
+    "4603030 September 13 14": {
+      "included": 121,
+      "flagged_false": 1,
+      "total": 122
+    },
+    "47a2804 October 14 13": {
+      "included": 137,
+      "flagged_false": 8,
+      "total": 145
+    },
+    "4de4129 September 13 02": {
+      "included": 173,
+      "flagged_false": 3,
+      "total": 176
+    },
+    "5e53707 October 13 36": {
+      "included": 111,
+      "flagged_false": 1,
+      "total": 112
+    },
+    "5e8e404 October 16 38": {
+      "included": 106,
+      "flagged_false": 4,
+      "total": 110
+    },
+    "68d4007 October 15 11": {
+      "included": 119,
+      "flagged_false": 3,
+      "total": 122
+    },
+    "7048029 September 09 31": {
+      "included": 110,
+      "flagged_false": 1,
+      "total": 111
+    },
+    "7dbd028 September 17 17": {
+      "included": 97,
+      "flagged_false": 2,
+      "total": 99
+    },
+    "80b2d05 October 11 08": {
+      "included": 219,
+      "flagged_false": 3,
+      "total": 222
+    },
+    "82dd506 October 13 36": {
+      "included": 99,
+      "unchecked": 1,
+      "total": 100
+    },
+    "875f311 October 10 05": {
+      "included": 274,
+      "flagged_false": 17,
+      "total": 291
+    },
+    "8c2cb07 October 16 03": {
+      "included": 108,
+      "flagged_false": 2,
+      "total": 110
+    },
+    "8fd9030 September 10 13": {
+      "included": 130,
+      "flagged_false": 3,
+      "total": 133
+    },
+    "8fde004 October 16 17": {
+      "included": 112,
+      "flagged_false": 1,
+      "total": 113
+    },
+    "912eb10 October 13 44": {
+      "included": 134,
+      "total": 134
+    },
+    "925d511 October 14 52": {
+      "included": 40,
+      "total": 40
+    },
+    "935bc28 September 14 02": {
+      "included": 168,
+      "flagged_false": 8,
+      "total": 176
+    },
+    "964ef28 September 12 05": {
+      "included": 28,
+      "total": 28
+    },
+    "9a46529 September 15 18": {
+      "included": 126,
+      "flagged_false": 1,
+      "total": 127
+    },
+    "9ef0106 October 14 41": {
+      "included": 105,
+      "flagged_false": 28,
+      "total": 133
+    },
+    "a7f3704 October 10 10": {
+      "flagged_false": 2,
+      "included": 1,
+      "total": 3
+    },
+    "a9da407 October 15 03": {
+      "included": 40,
+      "flagged_false": 1,
+      "total": 41
+    },
+    "aa1ee03 October 15 05": {
+      "included": 187,
+      "flagged_false": 40,
+      "total": 227
+    },
+    "ab07930 September 11 22": {
+      "included": 119,
+      "total": 119
+    },
+    "ad4ba05 October 13 01": {
+      "included": 128,
+      "flagged_false": 3,
+      "total": 131
+    },
+    "ae78129 September 17 17": {
+      "included": 112,
+      "flagged_false": 2,
+      "total": 114
+    },
+    "af2c212 October 09 43": {
+      "unchecked": 320,
+      "total": 320
+    },
+    "b08cd04 October 15 37": {
+      "included": 125,
+      "flagged_false": 3,
+      "total": 128
+    },
+    "b23d828 September 15 59": {
+      "included": 127,
+      "flagged_false": 5,
+      "total": 132
+    },
+    "b242607 October 13 15": {
+      "included": 108,
+      "flagged_false": 9,
+      "total": 117
+    },
+    "b466630 September 09 28": {
+      "included": 253,
+      "flagged_false": 3,
+      "total": 256
+    },
+    "ba0cf28 September 10 09": {
+      "included": 83,
+      "flagged_false": 3,
+      "total": 86
+    },
+    "ba86330 September 15 19": {
+      "included": 231,
+      "flagged_false": 6,
+      "unchecked": 1,
+      "total": 238
+    },
+    "c3e6629 September 12 13": {
+      "included": 131,
+      "flagged_false": 2,
+      "total": 133
+    },
+    "c714c04 October 13 48": {
+      "included": 139,
+      "total": 139
+    },
+    "c7d7310 October 14 13": {
+      "included": 106,
+      "flagged_false": 5,
+      "total": 111
+    },
+    "c8e4a07 October 11 19": {
+      "included": 103,
+      "flagged_false": 4,
+      "total": 107
+    },
+    "cbb7807 October 10 57": {
+      "included": 225,
+      "flagged_false": 6,
+      "total": 231
+    },
+    "ce3d911 October 11 39": {
+      "included": 241,
+      "flagged_false": 5,
+      "total": 246
+    },
+    "d09e407 October 14 30": {
+      "included": 207,
+      "unchecked": 1,
+      "flagged_false": 4,
+      "total": 212
+    },
+    "e1d1304 October 11 10": {
+      "flagged_false": 3,
+      "included": 171,
+      "total": 174
+    },
+    "ea06830 September 12 34": {
+      "included": 106,
+      "flagged_false": 1,
+      "total": 107
+    },
+    "ff5b330 September 16 40": {
+      "included": 112,
+      "total": 112
+    }
+  },
+  "anomalies": [
+    {
+      "type": "variant_class_token",
+      "token": "LeftBack.json",
+      "mapped_to": "LeftBack",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftClick.json",
+      "mapped_to": "LeftClick",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftClose.json",
+      "mapped_to": "LeftClose",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftGrab.json",
+      "mapped_to": "LeftGrab",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftHome.json",
+      "mapped_to": "LeftHome",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftInfinity.json",
+      "mapped_to": "LeftInfinity",
+      "count": 1
+    },
+    {
+      "type": "unmapped_class_token",
+      "token": "LeftOK.json",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftOpenPalm.json",
+      "mapped_to": "LeftOpenPalm",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftPoint.json",
+      "mapped_to": "LeftPoint",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftPush.json",
+      "mapped_to": "LeftPush",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftRotate.json",
+      "mapped_to": "LeftRotate",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "LeftScroll.json",
+      "mapped_to": "LeftScroll",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightBack.json",
+      "mapped_to": "RightBack",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightClick.json",
+      "mapped_to": "RightClick",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightClose.json",
+      "mapped_to": "RightClose",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightGrab.json",
+      "mapped_to": "RightGrab",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightHome.json",
+      "mapped_to": "RightHome",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightInfinity.json",
+      "mapped_to": "RightInfinity",
+      "count": 1
+    },
+    {
+      "type": "unmapped_class_token",
+      "token": "RightOK.json",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightOpenPalm.json",
+      "mapped_to": "RightOpenPalm",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightPoint.json",
+      "mapped_to": "RightPoint",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightPush.json",
+      "mapped_to": "RightPush",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightRotate.json",
+      "mapped_to": "RightRotate",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "RightScroll.json",
+      "mapped_to": "RightScroll",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "Teleportation.json",
+      "mapped_to": "Teleportation",
+      "count": 1
+    },
+    {
+      "type": "variant_class_token",
+      "token": "Zoom.json",
+      "mapped_to": "Zoom",
+      "count": 1
+    }
+  ]
+}

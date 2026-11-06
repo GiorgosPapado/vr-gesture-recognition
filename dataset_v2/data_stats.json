@@ -1,0 +1,64 @@
+{
+  "on_disk_files": 7872,
+  "on_disk_bytes": 15222450323,
+  "file_size_bytes_on_disk": {
+    "min": 412321.0,
+    "p5": 985114.85,
+    "median": 1670552.0,
+    "mean": 1933746.2300558942,
+    "p95": 3554385.35,
+    "max": 12141176.0
+  },
+  "included_files": 7158,
+  "included_bytes": 14033523393,
+  "file_size_bytes_included": {
+    "min": 412321.0,
+    "p5": 994072.05,
+    "median": 1703667.5,
+    "mean": 1960536.936714166,
+    "p95": 3576920.9499999993,
+    "max": 12141176.0
+  },
+  "filename_date_range_included": {
+    "first": "September 28 09:55",
+    "last": "October 11 14:57",
+    "months": {
+      "October": 4861,
+      "September": 2297
+    },
+    "note": "year is not encoded in the file names"
+  },
+  "sample": {
+    "n_sampled": 300,
+    "seed": 0,
+    "frames": {
+      "min": 56.0,
+      "p5": 87.0,
+      "median": 141.5,
+      "mean": 168.28333333333333,
+      "p95": 317.65000000000015,
+      "max": 660.0
+    },
+    "duration_s": {
+      "min": 1.207427978515625,
+      "p5": 1.5386355876922608,
+      "median": 3.0166854858398438,
+      "mean": 3.1911029847462973,
+      "p95": 5.326786041259768,
+      "max": 10.033782958984375
+    },
+    "sampling_rate_hz": {
+      "min": 18.27120780086223,
+      "p5": 35.00542460079448,
+      "median": 54.78678919715381,
+      "mean": 54.54448494783208,
+      "p95": 71.61443955565063,
+      "max": 71.85007064594386
+    },
+    "hands_present_by_class_hand": {
+      "both:LR": 17,
+      "left:L-": 138,
+      "right:-R": 145
+    }
+  }
+}
