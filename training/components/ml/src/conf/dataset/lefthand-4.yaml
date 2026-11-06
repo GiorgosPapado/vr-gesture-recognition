@@ -10,5 +10,5 @@ gesture_names:
   - LeftOpenPalm
   - LeftRotate
   - LeftGrab
-train_index_file: ${environment.dataset.index_file_base_dir}\hand_train_split.txt  
-test_index_file: ${environment.dataset.index_file_base_dir}\hand_test_split.txt
+train_index_file: ${environment.dataset.index_file_base_dir}/hand_train_split.txt  
+test_index_file: ${environment.dataset.index_file_base_dir}/hand_test_split.txt

@@ -62,7 +62,6 @@ hijri-converter==2.2.4
 hmmlearn==0.2.8
 holidays==0.20
 hydra-core==1.3.1
-hydra-nevergrad-sweeper @ file:///G:/aldoum/code/vr-gestures/components/ml/deps/hydra-nevergrad-sweeper-1.2.0.tar
 idna==3.4
 importlib-metadata==5.2.0
 importlib-resources==5.10.2
@@ -188,3 +187,6 @@ wrapt==1.14.1
 xarray==2023.1.0
 zict==2.2.0
 zipp==3.11.0
+# torch and onnxruntime are imported by src/onnx.py; unpinned (versions not recorded)
+torch
+onnxruntime

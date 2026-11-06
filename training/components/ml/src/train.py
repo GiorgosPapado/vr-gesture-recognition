@@ -16,7 +16,7 @@ from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score, p
 from utils.log import log_hyperparams, write_scores
 from utils.dataset import load_dataset, balance_dataset
 
-@hydra.main(version_base = None, config_path='./conf',config_name='train')
+@hydra.main(version_base = None, config_path='./conf',config_name='train-all')
 def main(
     cfg: DictConfig
 ):

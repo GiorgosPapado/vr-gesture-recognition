@@ -1,4 +1,0 @@
-- classifier.window_inc=2
-- preprocess=['identity', 'interpolation']
-- sweep@_global_=MUSE
-- dataset=controllers-4

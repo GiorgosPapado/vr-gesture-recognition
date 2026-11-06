@@ -3,3 +3,4 @@ vr-gestures-multirun/
 # Local experiment outputs
 mlruns/
 multirun/
+outputs/

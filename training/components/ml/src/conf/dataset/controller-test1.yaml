@@ -12,5 +12,5 @@ gesture_names:
   - '>'
   - INFINITY
 handedness: null
-train_index_file: ${environment.dataset.index_file_base_dir}\controller_train_split.txt  
-test_index_file: ${environment.dataset.index_file_base_dir}\controller_test_split.txt
+train_index_file: ${environment.dataset.index_file_base_dir}/controller_train_split.txt  
+test_index_file: ${environment.dataset.index_file_base_dir}/controller_test_split.txt

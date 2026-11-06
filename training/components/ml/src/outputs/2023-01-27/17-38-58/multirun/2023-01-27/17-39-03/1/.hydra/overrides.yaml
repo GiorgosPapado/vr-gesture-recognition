@@ -1,5 +1,0 @@
-- classifier.weights=distance
-- classifier.distance=euclidean
-- preprocess=['identity', 'interpolation']
-- sweep@_global_=KNeighborsTimeSeries
-- dataset=controllers-4

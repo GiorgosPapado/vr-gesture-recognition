@@ -18,7 +18,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_dataset_dir",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused",
+                "${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/remove-unused",
                 "--gesture_names",
                 "I",
                 "O",
@@ -41,7 +41,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_dataset_dir",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/fixed-labels",
                 "--gesture_names",
                 "LeftInfinity",
                 "LeftOpenPalm",
@@ -65,7 +65,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_controller_dataset_dir",
-                "F:\\dataset\\vcl3d-vr-controller-gestures",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-vr-controller-gestures",
                 "--gesture_names",
                 "I",
                 "O",
@@ -138,7 +138,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_hand_dataset_dir",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/fixed-labels",
                 "--gesture_names",
                 "LeftInfinity",
                 "LeftOpenPalm",
@@ -159,7 +159,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_dataset_dir",
-                "F:\\dataset\\vcl3d-controller-gesture-dataset\\remove-unused",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-controller-gesture-dataset/remove-unused",
                 "--out_path_to_train_split_txt","controller_train_split.txt",
                 "--out_path_to_test_split_txt","controller_test_split.txt",
                 "--train_size",
@@ -177,7 +177,7 @@
             "justMyCode": true,
             "args": [
                 "--path_to_dataset_dir",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\fixed-labels",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/bin/fixed-labels",
                 "--out_path_to_train_split_txt","hand_train_split.txt",
                 "--out_path_to_test_split_txt","hand_test_split.txt",
                 "--train_size",
@@ -196,11 +196,11 @@
             "args": [
                 "convert",
                 "--hand_dataset_source_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\json",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/json",
                 "--hand_dataset_destination_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\original",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/original",
                 "--hand_dataset_filter_json_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\hand_gestures_filter.json"
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/meta/hand_gestures_filter.json"
             ]
         },
         {
@@ -213,11 +213,11 @@
             "args": [
                 "convert",
                 "--hand_dataset_source_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\json",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/json",
                 "--hand_dataset_destination_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\original2",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/bin/original2",
                 "--hand_dataset_filter_json_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\meta\\hand_gestures_filter.json"
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/meta/hand_gestures_filter.json"
             ]
         },
         {
@@ -230,11 +230,11 @@
             "args": [
                 "fix-labels",
                 "--hand_dataset_bin_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\original2",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/original2",
                 "--hand_dataset_output_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/fixed-labels",
                 "--class_label_map_file_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\hand_class_label_map.csv"
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/meta/hand_class_label_map.csv"
             ]
         },
         {
@@ -247,11 +247,11 @@
             "args": [
                 "fix-labels",
                 "--hand_dataset_bin_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\original2",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/bin/original2",
                 "--hand_dataset_output_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\bin\\fixed-labels2",
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/bin/fixed-labels2",
                 "--class_label_map_file_path",
-                "F:\\dataset\\vcl3d-hand-gesture-dataset\\meta\\hand_class_label_map.csv"
+                "${env:VRG_DATASET_ROOT_B}/vcl3d-hand-gesture-dataset/meta/hand_class_label_map.csv"
             ]
         },
         {
@@ -264,9 +264,9 @@
             "args": [
                 "build-index-meta",
                 "--hand_dataset_bin_path",
-                "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\bin\\fixed-labels",
-                "--index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\index.csv",
-                "--detailed_index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\hand-gesture-dataset\\meta\\detailed_index.csv"
+                "${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/bin/fixed-labels",
+                "--index_meta_output_file_path","${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/meta/index.csv",
+                "--detailed_index_meta_output_file_path","${env:VRG_DATASET_ROOT_A}/hand-gesture-dataset/meta/detailed_index.csv"
                 
             ]
         },
@@ -279,8 +279,8 @@
             "justMyCode": true,
             "args": [
                 "remove-unused-controller",
-                "--controller_dataset_source_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\original",
-                "--controller_dataset_destination_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused"
+                "--controller_dataset_source_path", "${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/original",
+                "--controller_dataset_destination_path", "${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/remove-unused"
             ]
         },
         {
@@ -292,9 +292,9 @@
             "justMyCode": true,
             "args": [
                 "build-index-meta",
-                "--controller_dataset_source_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\remove-unused",
-                "--index_meta_output_file_path", "C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\meta\\index.csv",
-                "--detailed_index_meta_output_file_path","C:\\Users\\giorgospap\\Desktop\\EKETA\\INFINITY\\controller-gesture-dataset\\meta\\detailed_index.csv"
+                "--controller_dataset_source_path", "${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/remove-unused",
+                "--index_meta_output_file_path", "${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/meta/index.csv",
+                "--detailed_index_meta_output_file_path","${env:VRG_DATASET_ROOT_A}/controller-gesture-dataset/meta/detailed_index.csv"
             ]
         },
         {
