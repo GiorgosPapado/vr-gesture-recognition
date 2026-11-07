@@ -1,19 +1,19 @@
 {
   "n_rows": 7907,
-  "n_on_disk": 7872,
+  "n_on_disk": 7870,
   "n_check_entries": 7460,
-  "n_included": 7184,
-  "n_included_in_vocabulary": 7182,
+  "n_included": 7182,
+  "n_included_in_vocabulary": 7180,
   "included_outside_vocabulary": [
     "LeftOK.json",
     "RightOK.json"
   ],
-  "n_on_disk_in_check_file": 7425,
+  "n_on_disk_in_check_file": 7423,
   "n_on_disk_not_in_check_file": 447,
   "exclusion_reasons": {
     "flagged_false": 241,
     "unchecked": 447,
-    "not_found_on_disk": 35
+    "not_found_on_disk": 37
   },
   "n_distinct_raw_class_tokens": 50,
   "n_canonical_classes_in_included": 24,
@@ -40,8 +40,8 @@
     "RightPoint": 328,
     "RightScroll": 322,
     "RightBack": 323,
-    "Teleportation": 175,
-    "Zoom": 270
+    "Teleportation": 174,
+    "Zoom": 269
   },
   "per_class_all_outcomes": {
     "LeftClick": {
@@ -199,34 +199,34 @@
       "excluded_folder": 0
     },
     "Teleportation": {
-      "included": 175,
+      "included": 174,
       "flagged_false": 0,
       "unchecked": 0,
-      "not_found_on_disk": 0,
+      "not_found_on_disk": 1,
       "excluded_folder": 0
     },
     "Zoom": {
-      "included": 270,
+      "included": 269,
       "flagged_false": 6,
       "unchecked": 11,
-      "not_found_on_disk": 0,
+      "not_found_on_disk": 1,
       "excluded_folder": 0
     }
   },
   "included_per_hand": {
     "left": 3060,
     "right": 3679,
-    "both": 445
+    "both": 443
   },
   "check_value_counts_on_disk": {
-    "True": 7184,
+    "True": 7182,
     "False": 241
   },
   "n_sessions": 58,
   "sessions": {
     "(root)": {
-      "included": 26,
-      "total": 26
+      "included": 24,
+      "total": 24
     },
     "033bf07 October 16 42": {
       "included": 102,

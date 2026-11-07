@@ -122,7 +122,7 @@ def to_markdown(s):
     L = ["# VRGestures v2 manifest summary", "",
          f"- rows: {s['n_rows']}; on disk: {s['n_on_disk']}; check-file entries: {s['n_check_entries']}; "
          f"**included: {s['n_included']}** ({s['n_included_in_vocabulary']} in the 24-class vocabulary)",
-         "- included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author): "
+         "- included in the manifest, outside the 24-class vocabulary, thumbs-up gestures per author statement (not verified): "
          + (", ".join(f"`{p}`" for p in s["included_outside_vocabulary"]) or "none"),
          f"- on disk and in check file: {s['n_on_disk_in_check_file']}; on disk, not in check file: "
          f"{s['n_on_disk_not_in_check_file']}; sessions: {s['n_sessions']}", "",

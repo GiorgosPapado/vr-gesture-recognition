@@ -1,8 +1,8 @@
 # VRGestures v2 manifest summary
 
-- rows: 7907; on disk: 7872; check-file entries: 7460; **included: 7184** (7182 in the 24-class vocabulary)
-- included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author): `LeftOK.json`, `RightOK.json`
-- on disk and in check file: 7425; on disk, not in check file: 447; sessions: 58
+- rows: 7907; on disk: 7870; check-file entries: 7460; **included: 7182** (7180 in the 24-class vocabulary)
+- included in the manifest, outside the 24-class vocabulary, thumbs-up gestures per author statement (not verified): `LeftOK.json`, `RightOK.json`
+- on disk and in check file: 7423; on disk, not in check file: 447; sessions: 58
 
 ## Exclusion reasons
 
@@ -10,7 +10,7 @@
 |---|---|
 | flagged_false | 241 |
 | unchecked | 447 |
-| not_found_on_disk | 35 |
+| not_found_on_disk | 37 |
 
 ## Per class and hand
 
@@ -38,14 +38,14 @@
 | RightPoint | right | 328 | 9 | 15 | 0 | 0 |
 | RightScroll | right | 322 | 19 | 11 | 0 | 0 |
 | RightBack | right | 323 | 12 | 17 | 0 | 0 |
-| Teleportation | both | 175 | 0 | 0 | 0 | 0 |
-| Zoom | both | 270 | 6 | 11 | 0 | 0 |
+| Teleportation | both | 174 | 0 | 0 | 1 | 0 |
+| Zoom | both | 269 | 6 | 11 | 1 | 0 |
 
 ## Per session (files on disk)
 
 | session | included | flagged_false | unchecked | excluded_folder | total |
 |---|---|---|---|---|---|
-| (root) | 26 | 0 | 0 | 0 | 26 |
+| (root) | 24 | 0 | 0 | 0 | 24 |
 | 033bf07 October 16 42 | 102 | 12 | 0 | 0 | 114 |
 | 04fa603 October 12 43 | 3 | 0 | 0 | 0 | 3 |
 | 08feb11 October 10 36 | 126 | 3 | 0 | 0 | 129 |
