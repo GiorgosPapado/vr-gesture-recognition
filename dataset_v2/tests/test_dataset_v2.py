@@ -106,3 +106,18 @@ def test_baselines_run(tree):
     for m in ("logreg", "lda"):
         assert 0.0 <= res["models"][m]["test"]["macro_f1"] <= 1.0
     assert res["majority_class_chance"]["test_accuracy"] <= 1.0
+
+
+def test_baselines_extras(tree):
+    rows, _, _ = _manifest(tree)
+    X, y, sess, sessions, _, _, _ = loader.build_arrays(rows, tree[0], length=8, workers=1)
+    assign, _ = splits.make_splits(rows, seed=0)
+    split = np.asarray([assign[sessions[s]] for s in sess])
+    groups = np.asarray([sessions[s] for s in sess])
+    res = baselines.run_baselines(X, y, split, feat_len=4, groups=groups, n_boot=20)
+    assert res["bootstrap"]["n_sessions"] == len(set(groups[split == "test"]))
+    lo, hi = res["bootstrap"]["models"]["lda"]["accuracy_ci95"]
+    assert 0.0 <= lo <= hi <= 1.0
+    assert 0.0 <= res["hand_presence_baseline"]["test"]["accuracy"] <= 1.0
+    assert 0.0 <= res["models"]["logreg"]["within_hand"]["overall"] <= 1.0
+    assert res["ablation_local_pos_only"]["n_features"] < res["n_features"]
