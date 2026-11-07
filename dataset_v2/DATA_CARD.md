@@ -11,15 +11,15 @@ The recordings are not part of this repository.
   Back) for the left and the right hand, plus the two-hand gestures Teleportation and Zoom. Canonical names:
   `Left<Gesture>`, `Right<Gesture>`, `Teleportation`, `Zoom`; ids 0-10 left, 11-21 right, 22 Teleportation, 23 Zoom
   (`classes.py`).
-- Recordings root: 58 session folders (`<hash> <Month> <HH> <MM>`) with 7,846 `.json` recordings, plus 26 loose
-  `.json` files in the root (7,872 on disk). File names: `<Class> <n> <hash> <DD> <Month> <HH> <MM> <k>.json`.
+- Recordings root: 58 session folders (`<hash> <Month> <HH> <MM>`) with 7,846 `.json` recordings, plus 24 loose
+  `.json` files in the root (7,870 on disk). File names: `<Class> <n> <hash> <DD> <Month> <HH> <MM> <k>.json`.
   No basename occurs twice.
-- The author's check file has 7,460 entries (7,219 true, 241 false); 7,425 on-disk files are covered, 447 are not
-  (320 + 124 of them are the two whole sessions `af2c212 October 09 43` and `3f8f813 October 10 42`), 35 entries
+- The author's check file has 7,460 entries (7,219 true, 241 false); 7,423 on-disk files are covered, 447 are not
+  (320 + 124 of them are the two whole sessions `af2c212 October 09 43` and `3f8f813 October 10 42`), 37 entries
   point to files that are not on disk.
 - Filename date range of the included recordings: September 28 09:55 to October 11 14:57 (the year is not
   encoded in the file names; 2,297 files from September, 4,861 from October).
-- File sizes: on disk 15.2 GB in total (7,872 files), median 1.67 MB, mean 1.93 MB, max 12.1 MB; exported set (7,182 files) 14.1 GB.
+- File sizes: on disk 15.2 GB in total (7,870 files), median 1.67 MB, mean 1.93 MB, max 12.1 MB; exported set (7,180 files) 14.1 GB.
 
 ## Cleaning rules (author's decisions)
 
@@ -27,34 +27,32 @@ The recordings are not part of this repository.
 |---|---|
 | check value `false` -> excluded (`flagged_false`) | 241 |
 | not in check file -> excluded until verified (`unchecked`) | 447 |
-| check entry without a file (`not_found_on_disk`, listed only) | 35 |
+| check entry without a file (`not_found_on_disk`, listed only) | 37 |
 | folders `AggelosTest`, `IoannaTest` (named after individuals, consent unknown) -> `excluded_folder` | 0 (not present under this root; rule kept) |
-| **included in the manifest** (true, on disk, not excluded; includes the 26 loose root files) | **7,184** |
-| of which in the 24-class vocabulary (exported to npz, splits, baselines) | **7,182** |
+| **included in the manifest** (true, on disk, not excluded; includes the 24 loose root files) | **7,182** |
+| of which in the 24-class vocabulary (exported to npz, splits, baselines) | **7,180** |
 
-Author's decision: the 26 loose `.json` files in the root (all `true` in the check file) are part of the dataset;
-they form the pseudo-session `(root)`. 7,184 = 7,219 true - 35 missing, as expected. The 26 loose files are
-`LeftBack.json` ... `Zoom.json` (24, mapped to the canonical classes) plus `LeftOK.json` and `RightOK.json`:
+Author's decision: the 24 loose `.json` files in the root (all `true` in the check file) are part of the dataset;
+they form the pseudo-session `(root)`. 7,182 = 7,219 true - 37 missing, as expected. The 24 loose files are
+`LeftBack.json` ... `RightScroll.json` (22, mapped to the canonical classes; there is no loose `Teleportation.json` / `Zoom.json` any more) plus `LeftOK.json` and `RightOK.json`:
 **included in the manifest, outside the 24-class vocabulary**. Author statement (not independently verified):
 `LeftOK.json` / `RightOK.json` are thumbs-up gestures (left hand / right hand). (`class_in_vocabulary`
 = False, `class_id` -1; their `class_name` inside the file is `GestureAnimation`, which does not match the intended meaning; this inconsistency is kept as documented; each has one hand, 158 and 135
 frames). They are not in the npz, splits or baselines.
 
-Two loose files, `Teleportation.json` and `Zoom.json`, contain `class_name` "LeftInfinity" (195 frames, both hands),
-so their content does not agree with their file names. Author statement (not independently verified): they were
-mislabelled and the author is removing them from the source folders. They are excluded from the manifest and are no
-longer an open question. (Counts elsewhere in this card that were computed before this exclusion may still mention
-them; the manifest is the reference.)
+Two former loose files, `Teleportation.json` and `Zoom.json`, contained `class_name` "LeftInfinity", so their content did
+not agree with their file names. Author statement (not independently verified): they were mislabelled and the author
+removed them from the source folders. They are no longer on disk; the check file still lists them, so they appear
+as `not_found_on_disk`. All numbers in this card were regenerated after their removal.
 
-Included in the vocabulary per hand: right 3,678, left 3,059, both 445; 57 groups contribute (56 session folders +
+Included in the vocabulary per hand: right 3,678, left 3,059, both 443; 57 groups contribute (56 session folders +
 `(root)`; the two fully unchecked sessions do not). Per class and per session: see `manifest_summary.md`.
 
 Class-name anomalies: the check file and the root contain 50 distinct leading name tokens instead of 24. The 24
-canonical tokens occur in the session files without any variant. The other 26 tokens are the loose root files
-(24 map to a canonical class from the `X.json` form; `LeftOK.json` / `RightOK.json` are unmapped). No case
+canonical tokens occur in the session files without any variant. The other 26 tokens are the loose root file names in the check file
+(24 map to a canonical class from the `X.json` form, of which 22 are on disk; `LeftOK.json` / `RightOK.json` are unmapped). No case
 differences or alternative spellings occur in session files; the mapping table in `classes.py` nevertheless
-accepts case and separator variants explicitly. For all included in-vocabulary recordings except the two loose
-files above, the `class_name` stored inside the JSON equals the manifest class (7,180 of 7,182 match).
+accepts case and separator variants explicitly. For all included in-vocabulary recordings the `class_name` stored inside the JSON equals the manifest class (7,180 of 7,180 match, checked by reading every included in-vocabulary file).
 
 ## Recording format (from the data)
 
@@ -62,16 +60,16 @@ Top-level keys `frameData`, `class_name`, `class_ID`. `frameData` has `left_hand
 each with 24 joints: `pos` x,y,z and `rotation` quaternion x,y,z,w, hand-local, joint 0 = (0,0,0)),
 `left_hand_global` / `right_hand_global` and `hmd` (`pos`, `rotation`, one pose per frame), and `timestamps` (seconds,
 one per frame). A hand not used in a gesture is an empty list. In the 300-recording sample: left-hand gestures
-have only the left hand (132), right-hand gestures only the right (152), Teleportation/Zoom both (16). `class_ID` in
+have only the left hand (131), right-hand gestures only the right (155), Teleportation/Zoom both (14). `class_ID` in
 the files uses a per-hand numbering (e.g. LeftClick 9 vs RightClick 11); use the manifest `class_id`.
 
 Random sample of 300 in-vocabulary included recordings (seed 0):
 
 | statistic | min | median | mean | p95 | max |
 |---|---|---|---|---|---|
-| frames | 71 | 149.0 | 176.4 | 329.2 | 720 |
-| duration (s) | 1.2 | 3.0 | 3.2 | 5.5 | 10.0 |
-| frame rate (Hz) | 18.1 | 61.4 | 56.5 | 71.7 | 72.0 |
+| frames | 61 | 150.0 | 176.8 | 336.1 | 551 |
+| duration (s) | 1.0 | 3.1 | 3.2 | 5.7 | 8.0 |
+| frame rate (Hz) | 24.0 | 63.7 | 56.1 | 71.6 | 71.8 |
 
 The frame rate is far from constant across recordings (p5 36 Hz); resampling to a fixed length ignores real time.
 
