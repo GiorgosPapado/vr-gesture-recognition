@@ -23,8 +23,6 @@ RightPoint.json,(root),RightPoint,19,right,RightPoint.json,True,True,True,,True
 RightPush.json,(root),RightPush,17,right,RightPush.json,True,True,True,,True
 RightRotate.json,(root),RightRotate,18,right,RightRotate.json,True,True,True,,True
 RightScroll.json,(root),RightScroll,20,right,RightScroll.json,True,True,True,,True
-Teleportation.json,(root),Teleportation,22,both,Teleportation.json,True,True,True,,True
-Zoom.json,(root),Zoom,23,both,Zoom.json,True,True,True,,True
 033bf07 October 16 42/LeftBack 10 0f4de 07 October 16 57 10.json,033bf07 October 16 42,LeftBack,10,left,LeftBack,True,True,True,,True
 033bf07 October 16 42/LeftBack 10 4a22e 07 October 16 57 7.json,033bf07 October 16 42,LeftBack,10,left,LeftBack,True,True,True,,True
 033bf07 October 16 42/LeftBack 10 84af0 07 October 16 57 6.json,033bf07 October 16 42,LeftBack,10,left,LeftBack,True,True,True,,True
@@ -7906,3 +7904,5 @@ ff5b330 September 16 40/LeftScroll 2 c9e09 30 September 16 50 5.json,ff5b330 Sep
 ,,RightInfinity,15,right,RightInfinity,True,True,False,not_found_on_disk,True
 ,,RightInfinity,15,right,RightInfinity,True,True,False,not_found_on_disk,True
 ,,RightInfinity,15,right,RightInfinity,True,True,False,not_found_on_disk,True
+,,Teleportation,22,both,Teleportation.json,True,True,False,not_found_on_disk,True
+,,Zoom,23,both,Zoom.json,True,True,False,not_found_on_disk,True

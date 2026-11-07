@@ -14,7 +14,7 @@
   "n_recordings": {
     "train": 5185,
     "val": 993,
-    "test": 1004
+    "test": 1002
   },
   "class_counts": {
     "train": {
@@ -92,8 +92,8 @@
       "RightPush": 61,
       "RightRotate": 68,
       "RightScroll": 30,
-      "Teleportation": 31,
-      "Zoom": 40
+      "Teleportation": 30,
+      "Zoom": 39
     }
   },
   "warnings": [],
