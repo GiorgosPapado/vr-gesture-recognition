@@ -35,17 +35,24 @@ def render(r):
         e = r["models"][m]
         L.append(f"| {m} | {e['selected']} | {e['selected_on_grid_edge']} | {e['val']['macro_f1']:.3f} | "
                  f"{e['test']['accuracy']:.3f} | {e['test']['macro_f1']:.3f} |")
+    edge = [m for m in models if r["models"][m]["selected_on_grid_edge"]]
+    if edge:
+        L += ["", "Grid edge: " + ", ".join(f"{m} selected {r['models'][m]['selected']}, the edge of its grid, so the true "
+                                           "optimum may lie beyond; inspect the val curve"
+                                           for m in edge) + " (see `val_search` in `baselines_results.json`)."]
     mc = r["majority_class_chance"]
     L += ["", f"Chance: majority class (train) test accuracy {mc['test_accuracy']:.3f}; uniform {mc['uniform_chance']:.3f}.", ""]
 
+    miss = r.get("splits_rows_not_in_npz", [])
+    nroot = r["models"][models[0]].get("test_root_only", {}).get("n")
     L += ["## Effect of the (root) pseudo-session", "",
-          "All 24 loose root files (one per class) form the pseudo-session `(root)` and the split puts that session "
-          "in the TEST split (sessions are assigned whole). The files are single canonical examples recorded outside "
-          "any session, so they are a different distribution from the session recordings, and two of them "
-          "(`Teleportation.json`, `Zoom.json`) have content labelled LeftInfinity. Test metrics are therefore given "
-          "with and without them.", "",
+          "The 24 loose root files (one per class) form the pseudo-session `(root)` and the split puts that whole "
+          "session in the TEST split. They are single examples recorded outside any session, so they may be a "
+          "different distribution from the session recordings. Test metrics are therefore given with and without them. "
+          f"The npz used here contains {nroot} of them; rows of `splits.csv` that are not in the npz: "
+          f"{', '.join(miss) if miss else 'none'}.", "",
           "| model | test acc (all) | test macro-F1 (all) | test acc (excl. root) | test macro-F1 (excl. root) "
-          "| acc on the 24 root files |",
+          "| acc on the root files |",
           "|---|---|---|---|---|---|"]
     for m in models:
         e = r["models"][m]
@@ -93,8 +100,12 @@ def render(r):
 
     a = r.get("ablation_local_pos_only")
     if a:
+        st = r["local_pos_stats"]
         L += ["## Ablation: local joint positions only (no root channels)", "",
-              f"{a['n_features']} features. Same protocol, reselected on val.", "",
+              f"{a['n_features']} features. Same protocol, reselected on val. In the npz, {st['n_channels_max_abs_above_1e-6']} "
+              f"of the {st['n_channels']} local joint-position channels ever exceed 1e-6 in absolute value; the median "
+              f"channel maximum is {st['median_channel_max_abs']:.2g} and the overall maximum {st['max_abs']:.2g}. "
+              "The local positions therefore carry almost no gesture information in this export (cause not verified).", "",
               "| model | selected | val macro-F1 | test accuracy | test macro-F1 | test acc excl. root "
               "| within-hand overall |",
               "|---|---|---|---|---|---|---|"]

@@ -191,6 +191,9 @@ def run_baselines(X, y, split, feat_len=16, seed=0, models=("logreg", "lda"), gr
                 y[te][nr], {k: v[nr] for k, v in test_pred.items()}, sess[nr], labels, n_boot, seed)
     if ablation:
         ch = local_pos_channels(X.shape[2])
+        mx = np.abs(X[:, :, ch]).max(axis=(0, 1))
+        out["local_pos_stats"] = {"n_channels": int(ch.sum()), "n_channels_max_abs_above_1e-6": int((mx > 1e-6).sum()),
+                                  "median_channel_max_abs": float(np.median(mx)), "max_abs": float(mx.max())}
         Fl = flatten_features(X[:, :, ch], feat_len)
         abl, _ = _run_models(Fl, y, tr, va, te, groups, labels, seed, models)
         out["ablation_local_pos_only"] = {"n_features": int(Fl.shape[1]), "models": abl}
@@ -229,6 +232,10 @@ def main(argv=None):
     res = run_baselines(d["X"], d["y"], load_split_vector(pf, a.splits), a.feat_len, a.seed,
                         groups=load_session_vector(pf, a.splits))
     here = Path(__file__).parent
+    with open(a.splits, newline="", encoding="utf-8") as f:
+        in_npz = set(pf.read_text(encoding="utf-8").splitlines())
+        res["splits_rows_not_in_npz"] = sorted(r["relative_path"] for r in csv.DictReader(f)
+                                               if r["relative_path"] not in in_npz)
     res["inputs_sha256"] = {n: hashlib.sha256((here / n).read_bytes()).hexdigest()
                             for n in ("manifest.csv", "splits.csv")}
     out = Path(a.out) if a.out else npz.with_name(npz.stem + ".baselines.json")
