@@ -273,7 +273,7 @@ def load_dataset(path_to_dataset_dir : str,
 
 if __name__ == "__main__":
     ds = load_dataset(
-        path_to_dataset_dir=r'C:\Users\giorgospap\Desktop\EKETA\INFINITY\hand-gesture-dataset\bin\fixed-labels',
+        path_to_dataset_dir=os.environ['VRG_HAND_DATASET_DIR'],  # required
         feature_names = ['HandPos','HandOrientation','Time'],
         gesture_names = ['LeftOpenPalm','LeftRotate','LeftInfinity','LeftGrab','RightGrab'], 
         handedness = 'left'      
