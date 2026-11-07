@@ -17,8 +17,13 @@ The recordings are not part of this repository.
 - The author's check file has 7,460 entries (7,219 true, 241 false); 7,425 on-disk files are covered, 447 are not
   (320 + 124 of them are the two whole sessions `af2c212 October 09 43` and `3f8f813 October 10 42`), 35 entries
   point to files that are not on disk.
-- Filename date range of the included recordings: September 28 09:55 to October 11 14:57 (the year is not
-  encoded in the file names; 2,297 files from September, 4,861 from October).
+- Date range of the included recordings, recomputed from `manifest.csv` (included rows) using the file-name fields
+  `<DD> <Month> <HH> <MM>`: September 28 09:55 to October 11 14:57 (the year is not encoded; 2,297 files from
+  September, 4,861 from October; the 26 loose root files carry no date, so 7,158 of the 7,184 included files are
+  dated). The session-folder names are not used for dates: in `<hash> <Month> <HH> <MM>` the two numbers are an
+  hour and minute (e.g. a folder `... October 16 42` holds files dated `07 October 16 57`), not a day, so folder
+  names such as "October 12/15/16" do not contradict the range. The month in every folder name equals the month in
+  its file names (0 mismatches).
 - File sizes: on disk 15.2 GB in total (7,872 files), median 1.67 MB, mean 1.93 MB, max 12.1 MB; exported set (7,182 files) 14.1 GB.
 
 ## Cleaning rules (author's decisions)
@@ -74,8 +79,9 @@ The frame rate is far from constant across recordings (p5 36 Hz); resampling to 
 
 ## Splits and baselines
 
-Participant ids are not in the files. Splits are grouped by session folder (a proxy; the same person may appear in The loose root files form one pseudo-session `(root)`.
-several sessions, so results may be optimistic for unseen people). Default: 70/15/15 of sessions, seeded, with a
+Participant ids are not in the files. Splits are grouped by session folder (a proxy; the same person may appear in
+several sessions, so results may be optimistic for unseen people). The loose root files form one pseudo-session
+`(root)`. Default: 70/15/15 of sessions, seeded, with a
 deterministic seed scan so that every class appears in every split. See `splits.csv`, `splits_report.json`,
 `BASELINES.md`.
 
