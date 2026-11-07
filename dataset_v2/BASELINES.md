@@ -1,11 +1,11 @@
 # Baselines (real run)
 
-Session-grouped split (seed_used 3; sessions {'train': 39, 'val': 9, 'test': 9}; recordings {'train': 5185, 'val': 993, 'test': 1004}; 7,182 in-vocabulary recordings, the loose-root files form one pseudo-session `(root)`). Features: 64-step linear resample stored in the npz, subsampled to 16 steps, left+right hand local joint positions and HMD-relative root position (150 channels -> 2,400 features), standardised on train. Hyper-parameter chosen on val macro-F1, test scored once per model. Logistic regression hit the 300-iteration limit (ConvergenceWarning), so it is under-trained. Note the loose `Teleportation.json` and `Zoom.json` contain `class_name` LeftInfinity (see DATA_CARD).
+Computed on the current manifest (after removal of the two mislabelled loose files). Session-grouped split (seed_used 3; sessions {'train': 39, 'val': 9, 'test': 9}; recordings {'train': 5185, 'val': 993, 'test': 1002}; 7,180 in-vocabulary recordings, the loose-root files form one pseudo-session `(root)`). Features: 64-step linear resample stored in the npz, subsampled to 16 steps, left+right hand local joint positions and HMD-relative root position (150 channels -> 2,400 features), standardised on train. Hyper-parameter chosen on val macro-F1, test scored once per model. Logistic regression hit the 300-iteration limit (ConvergenceWarning), so it is under-trained.
 
 | model | selected | val macro-F1 | test accuracy | test macro-F1 |
 |---|---|---|---|---|
-| logreg | {'C': 0.1} | 0.420 | 0.371 | 0.371 |
-| lda | {'shrinkage': 0.1} | 0.388 | 0.355 | 0.359 |
+| logreg | {'C': 0.1} | 0.420 | 0.369 | 0.371 |
+| lda | {'shrinkage': 0.1} | 0.388 | 0.353 | 0.359 |
 
 Chance: majority class (train) test accuracy 0.030; uniform 1/24 = 0.042.
 
@@ -36,4 +36,4 @@ Chance: majority class (train) test accuracy 0.030; uniform 1/24 = 0.042.
 | RightScroll | 0.57 | 0.43 |
 | RightBack | 0.32 | 0.32 |
 | Teleportation | 0.87 | 1.00 |
-| Zoom | 0.78 | 0.68 |
+| Zoom | 0.77 | 0.67 |
