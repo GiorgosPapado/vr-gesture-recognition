@@ -52,6 +52,9 @@ def tree(tmp_path_factory):
     check["Zoom 5 gone 01 October 10 10 9.json"] = True  # no such file
     write_recording(root / "LeftClick.json", "LeftClick", 8, rng)  # loose sample in root
     check["LeftClick.json"] = True
+    for oov in ("LeftOK", "Zoom"):
+        write_recording(root / f"{oov}.json", oov, 8, rng)
+        check[f"{oov}.json"] = True
     write_recording(root / "AggelosTest" / "LeftClick 9 x 01 October 10 10 1.json", "LeftClick", 8, rng)
     check["LeftClick 9 x 01 October 10 10 1.json"] = True
     cf = root.parent / "check.json"

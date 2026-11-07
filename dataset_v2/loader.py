@@ -153,7 +153,7 @@ def build_arrays(rows, root, length=64, pad=False, features=DEFAULT_FEATURES, hm
 
     Returns X (N, T, C) float32, y (N,) int64, session (N,) int64, sessions (list of names, index = session id),
     paths (list), n_frames (N,) int32, problems (list of (path, message)); problem files are dropped."""
-    rows = [r for r in rows if str(r["included"]) == "True"]
+    rows = [r for r in rows if str(r["included"]) == "True" and str(r.get("class_in_vocabulary", True)) == "True"]
     kw = dict(length=length, pad=pad, features=tuple(features), hmd_relative=hmd_relative)
     C = 2 * sum(FEATURE_DIMS[f] for f in features)
     X = np.zeros((len(rows), length, C), np.float32)

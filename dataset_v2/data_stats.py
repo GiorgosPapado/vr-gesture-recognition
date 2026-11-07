@@ -42,7 +42,7 @@ def file_date_range(rel_paths):
 def sample_stats(rows, root, n=300, seed=0):
     from .loader import read_recording
 
-    inc = [r for r in rows if str(r["included"]) == "True"]
+    inc = [r for r in rows if str(r["included"]) == "True" and str(r["class_in_vocabulary"]) == "True"]
     rng = np.random.RandomState(seed)
     pick = rng.choice(len(inc), size=min(n, len(inc)), replace=False)
     frames, dur, hz, empty = [], [], [], Counter()
@@ -72,7 +72,7 @@ def main(argv=None):
         p.error("--recordings-root or VRG_V2_RECORDINGS_ROOT required")
     rows = read_manifest(a.manifest)
     on_disk = [r for r in rows if r["relative_path"]]
-    inc = [r for r in rows if r["included"] == "True"]
+    inc = [r for r in rows if r["included"] == "True" and r["class_in_vocabulary"] == "True"]
     sizes = [os.path.getsize(os.path.join(a.recordings_root, r["relative_path"])) for r in on_disk]
     inc_sizes = [os.path.getsize(os.path.join(a.recordings_root, r["relative_path"])) for r in inc]
     res = {"on_disk_files": len(on_disk), "on_disk_bytes": int(sum(sizes)), "file_size_bytes_on_disk": describe(sizes),

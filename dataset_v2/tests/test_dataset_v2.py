@@ -28,9 +28,13 @@ def test_manifest_rules(tree):
     assert reasons["flagged_false"] == 1
     assert reasons["unchecked"] == 1
     assert reasons["not_found_on_disk"] == 1
-    assert reasons["excluded_folder"] == 2  # loose root file + AggelosTest
+    assert reasons["excluded_folder"] == 1  # AggelosTest only; loose root files are included
     inc = [r for r in rows if r["included"]]
-    assert len(inc) == tree[3] - 2
+    assert len(inc) == tree[3] - 2 + 3  # 3 loose root files (LeftClick, LeftOK, Zoom)
+    oov = [r for r in inc if not r["class_in_vocabulary"]]
+    assert [r["relative_path"] for r in oov] == ["LeftOK.json"]
+    assert oov[0]["class_name_canonical"] == "LeftOK" and oov[0]["class_id"] == -1
+    assert {r["session_id"] for r in inc if "/" not in r["relative_path"]} == {"(root)"}
     assert all(r["checked"] and r["check_value"] is True for r in inc)
     assert not any("AggelosTest" in r["relative_path"] for r in inc)
     missing = [r for r in rows if r["exclusion_reason"] == "not_found_on_disk"][0]
@@ -42,7 +46,7 @@ def test_manifest_cli_outputs(tree, tmp_path):
     root, cf, _, n = tree
     build_manifest.main(["--recordings-root", str(root), "--check-file", str(cf), "--out-dir", str(tmp_path)])
     s = json.loads((tmp_path / "manifest_summary.json").read_text(encoding="utf-8"))
-    assert s["n_included"] == n - 2 and s["n_sessions"] == 8
+    assert s["n_included"] == n + 1 and s["n_included_in_vocabulary"] == n and s["n_sessions"] == 8
     assert (tmp_path / "manifest.csv").exists() and "included" in (tmp_path / "manifest_summary.md").read_text()
 
 
@@ -66,7 +70,7 @@ def test_loader_shapes_and_resample(tree):
 def test_build_and_save_npz(tree, tmp_path):
     rows, _, _ = _manifest(tree)
     X, y, sess, sessions, paths, nfr, problems = loader.build_arrays(rows, tree[0], length=8, workers=2)
-    assert X.shape == (tree[3] - 2, 8, 150) and len(sessions) == 8 and not problems
+    assert X.shape == (tree[3] - 2 + 2, 8, 150) and len(sessions) == 9 and not problems
     assert len(y) == len(sess) == len(paths) == len(nfr)
     out = loader.save_npz(tmp_path / "d.npz", X, y, sess, sessions, CLASSES,
                           loader.DEFAULT_FEATURES, 8, False, True, paths)
@@ -81,7 +85,7 @@ def test_splits_disjoint_and_seeded(tree, tmp_path):
     a1, rep = splits.make_splits(rows, seed=3)
     a2, _ = splits.make_splits(rows, seed=3)
     assert a1 == a2
-    assert set(a1.values()) == {"train", "val", "test"} and len(a1) == 8
+    assert set(a1.values()) == {"train", "val", "test"} and len(a1) == 9
     splits.write_splits(rows, a1, tmp_path / "s.csv")
 
     with open(tmp_path / "s.csv", encoding="utf-8") as fh:

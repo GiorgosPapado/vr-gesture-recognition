@@ -2,11 +2,15 @@
   "n_rows": 7907,
   "n_on_disk": 7872,
   "n_check_entries": 7460,
-  "n_included": 7158,
+  "n_included": 7184,
+  "n_included_in_vocabulary": 7182,
+  "included_outside_vocabulary": [
+    "LeftOK.json",
+    "RightOK.json"
+  ],
   "n_on_disk_in_check_file": 7425,
   "n_on_disk_not_in_check_file": 447,
   "exclusion_reasons": {
-    "excluded_folder": 26,
     "flagged_false": 241,
     "unchecked": 447,
     "not_found_on_disk": 35
@@ -14,205 +18,205 @@
   "n_distinct_raw_class_tokens": 50,
   "n_canonical_classes_in_included": 24,
   "included_per_class": {
-    "LeftClick": 275,
-    "LeftClose": 283,
-    "LeftGrab": 284,
-    "LeftHome": 263,
-    "LeftInfinity": 292,
-    "LeftOpenPalm": 290,
-    "LeftPush": 266,
-    "LeftRotate": 273,
-    "LeftPoint": 268,
-    "LeftScroll": 272,
-    "LeftBack": 282,
-    "RightClick": 318,
-    "RightClose": 344,
-    "RightGrab": 353,
-    "RightHome": 327,
-    "RightInfinity": 354,
-    "RightOpenPalm": 333,
-    "RightPush": 326,
-    "RightRotate": 342,
-    "RightPoint": 327,
-    "RightScroll": 321,
-    "RightBack": 322,
-    "Teleportation": 174,
-    "Zoom": 269
+    "LeftClick": 276,
+    "LeftClose": 284,
+    "LeftGrab": 285,
+    "LeftHome": 264,
+    "LeftInfinity": 293,
+    "LeftOpenPalm": 291,
+    "LeftPush": 267,
+    "LeftRotate": 274,
+    "LeftPoint": 269,
+    "LeftScroll": 273,
+    "LeftBack": 283,
+    "RightClick": 319,
+    "RightClose": 345,
+    "RightGrab": 354,
+    "RightHome": 328,
+    "RightInfinity": 355,
+    "RightOpenPalm": 334,
+    "RightPush": 327,
+    "RightRotate": 343,
+    "RightPoint": 328,
+    "RightScroll": 322,
+    "RightBack": 323,
+    "Teleportation": 175,
+    "Zoom": 270
   },
   "per_class_all_outcomes": {
     "LeftClick": {
-      "included": 275,
+      "included": 276,
       "flagged_false": 16,
       "unchecked": 30,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftClose": {
-      "included": 283,
+      "included": 284,
       "flagged_false": 0,
       "unchecked": 26,
       "not_found_on_disk": 12,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftGrab": {
-      "included": 284,
+      "included": 285,
       "flagged_false": 7,
       "unchecked": 26,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftHome": {
-      "included": 263,
+      "included": 264,
       "flagged_false": 14,
       "unchecked": 25,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftInfinity": {
-      "included": 292,
+      "included": 293,
       "flagged_false": 0,
       "unchecked": 24,
       "not_found_on_disk": 13,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftOpenPalm": {
-      "included": 290,
+      "included": 291,
       "flagged_false": 11,
       "unchecked": 33,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftPush": {
-      "included": 266,
+      "included": 267,
       "flagged_false": 10,
       "unchecked": 27,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftRotate": {
-      "included": 273,
+      "included": 274,
       "flagged_false": 25,
       "unchecked": 22,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftPoint": {
-      "included": 268,
+      "included": 269,
       "flagged_false": 13,
       "unchecked": 27,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftScroll": {
-      "included": 272,
+      "included": 273,
       "flagged_false": 25,
       "unchecked": 25,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "LeftBack": {
-      "included": 282,
+      "included": 283,
       "flagged_false": 10,
       "unchecked": 28,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightClick": {
-      "included": 318,
+      "included": 319,
       "flagged_false": 13,
       "unchecked": 11,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightClose": {
-      "included": 344,
+      "included": 345,
       "flagged_false": 0,
       "unchecked": 11,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightGrab": {
-      "included": 353,
+      "included": 354,
       "flagged_false": 10,
       "unchecked": 14,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightHome": {
-      "included": 327,
+      "included": 328,
       "flagged_false": 23,
       "unchecked": 17,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightInfinity": {
-      "included": 354,
+      "included": 355,
       "flagged_false": 0,
       "unchecked": 12,
       "not_found_on_disk": 10,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightOpenPalm": {
-      "included": 333,
+      "included": 334,
       "flagged_false": 13,
       "unchecked": 10,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightPush": {
-      "included": 326,
+      "included": 327,
       "flagged_false": 5,
       "unchecked": 15,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightRotate": {
-      "included": 342,
+      "included": 343,
       "flagged_false": 0,
       "unchecked": 10,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightPoint": {
-      "included": 327,
+      "included": 328,
       "flagged_false": 9,
       "unchecked": 15,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightScroll": {
-      "included": 321,
+      "included": 322,
       "flagged_false": 19,
       "unchecked": 11,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "RightBack": {
-      "included": 322,
+      "included": 323,
       "flagged_false": 12,
       "unchecked": 17,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "Teleportation": {
-      "included": 174,
+      "included": 175,
       "flagged_false": 0,
       "unchecked": 0,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     },
     "Zoom": {
-      "included": 269,
+      "included": 270,
       "flagged_false": 6,
       "unchecked": 11,
       "not_found_on_disk": 0,
-      "excluded_folder": 1
+      "excluded_folder": 0
     }
   },
   "included_per_hand": {
-    "left": 3048,
-    "right": 3667,
-    "both": 443
+    "left": 3060,
+    "right": 3679,
+    "both": 445
   },
   "check_value_counts_on_disk": {
     "True": 7184,
@@ -221,7 +225,7 @@
   "n_sessions": 58,
   "sessions": {
     "(root)": {
-      "excluded_folder": 26,
+      "included": 26,
       "total": 26
     },
     "033bf07 October 16 42": {

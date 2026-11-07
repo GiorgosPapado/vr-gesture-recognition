@@ -1,13 +1,13 @@
 # VRGestures v2 manifest summary
 
-- rows: 7907; on disk: 7872; check-file entries: 7460; **included: 7158**
+- rows: 7907; on disk: 7872; check-file entries: 7460; **included: 7184** (7182 in the 24-class vocabulary)
+- included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author): `LeftOK.json`, `RightOK.json`
 - on disk and in check file: 7425; on disk, not in check file: 447; sessions: 58
 
 ## Exclusion reasons
 
 | reason | count |
 |---|---|
-| excluded_folder | 26 |
 | flagged_false | 241 |
 | unchecked | 447 |
 | not_found_on_disk | 35 |
@@ -16,36 +16,36 @@
 
 | class | hand | included | flagged_false | unchecked | not_found_on_disk | excluded_folder |
 |---|---|---|---|---|---|---|
-| LeftClick | left | 275 | 16 | 30 | 0 | 1 |
-| LeftClose | left | 283 | 0 | 26 | 12 | 1 |
-| LeftGrab | left | 284 | 7 | 26 | 0 | 1 |
-| LeftHome | left | 263 | 14 | 25 | 0 | 1 |
-| LeftInfinity | left | 292 | 0 | 24 | 13 | 1 |
-| LeftOpenPalm | left | 290 | 11 | 33 | 0 | 1 |
-| LeftPush | left | 266 | 10 | 27 | 0 | 1 |
-| LeftRotate | left | 273 | 25 | 22 | 0 | 1 |
-| LeftPoint | left | 268 | 13 | 27 | 0 | 1 |
-| LeftScroll | left | 272 | 25 | 25 | 0 | 1 |
-| LeftBack | left | 282 | 10 | 28 | 0 | 1 |
-| RightClick | right | 318 | 13 | 11 | 0 | 1 |
-| RightClose | right | 344 | 0 | 11 | 0 | 1 |
-| RightGrab | right | 353 | 10 | 14 | 0 | 1 |
-| RightHome | right | 327 | 23 | 17 | 0 | 1 |
-| RightInfinity | right | 354 | 0 | 12 | 10 | 1 |
-| RightOpenPalm | right | 333 | 13 | 10 | 0 | 1 |
-| RightPush | right | 326 | 5 | 15 | 0 | 1 |
-| RightRotate | right | 342 | 0 | 10 | 0 | 1 |
-| RightPoint | right | 327 | 9 | 15 | 0 | 1 |
-| RightScroll | right | 321 | 19 | 11 | 0 | 1 |
-| RightBack | right | 322 | 12 | 17 | 0 | 1 |
-| Teleportation | both | 174 | 0 | 0 | 0 | 1 |
-| Zoom | both | 269 | 6 | 11 | 0 | 1 |
+| LeftClick | left | 276 | 16 | 30 | 0 | 0 |
+| LeftClose | left | 284 | 0 | 26 | 12 | 0 |
+| LeftGrab | left | 285 | 7 | 26 | 0 | 0 |
+| LeftHome | left | 264 | 14 | 25 | 0 | 0 |
+| LeftInfinity | left | 293 | 0 | 24 | 13 | 0 |
+| LeftOpenPalm | left | 291 | 11 | 33 | 0 | 0 |
+| LeftPush | left | 267 | 10 | 27 | 0 | 0 |
+| LeftRotate | left | 274 | 25 | 22 | 0 | 0 |
+| LeftPoint | left | 269 | 13 | 27 | 0 | 0 |
+| LeftScroll | left | 273 | 25 | 25 | 0 | 0 |
+| LeftBack | left | 283 | 10 | 28 | 0 | 0 |
+| RightClick | right | 319 | 13 | 11 | 0 | 0 |
+| RightClose | right | 345 | 0 | 11 | 0 | 0 |
+| RightGrab | right | 354 | 10 | 14 | 0 | 0 |
+| RightHome | right | 328 | 23 | 17 | 0 | 0 |
+| RightInfinity | right | 355 | 0 | 12 | 10 | 0 |
+| RightOpenPalm | right | 334 | 13 | 10 | 0 | 0 |
+| RightPush | right | 327 | 5 | 15 | 0 | 0 |
+| RightRotate | right | 343 | 0 | 10 | 0 | 0 |
+| RightPoint | right | 328 | 9 | 15 | 0 | 0 |
+| RightScroll | right | 322 | 19 | 11 | 0 | 0 |
+| RightBack | right | 323 | 12 | 17 | 0 | 0 |
+| Teleportation | both | 175 | 0 | 0 | 0 | 0 |
+| Zoom | both | 270 | 6 | 11 | 0 | 0 |
 
 ## Per session (files on disk)
 
 | session | included | flagged_false | unchecked | excluded_folder | total |
 |---|---|---|---|---|---|
-| (root) | 0 | 0 | 0 | 26 | 26 |
+| (root) | 26 | 0 | 0 | 0 | 26 |
 | 033bf07 October 16 42 | 102 | 12 | 0 | 0 | 114 |
 | 04fa603 October 12 43 | 3 | 0 | 0 | 0 | 3 |
 | 08feb11 October 10 36 | 126 | 3 | 0 | 0 | 129 |

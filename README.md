@@ -63,7 +63,7 @@ python -m dataset_v2.baselines --npz <outside-repo>/vrgestures_v2.npz
 python -m pytest -q dataset_v2
 ```
 
-Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included; `false` and unchecked recordings are excluded. **Not verified / unknown** (marked `TODO(author)` in the data card): headset and tracking SDK, capture protocol, number of participants, consent/ethics, licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy for participants.
+Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included (7,184 in the manifest, 7,182 in the 24-class vocabulary); `false` and unchecked recordings are excluded. **Not verified / unknown** (marked `TODO(author)` in the data card): headset and tracking SDK, capture protocol, number of participants, consent/ethics, licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy for participants.
 
 ## Gestures
 

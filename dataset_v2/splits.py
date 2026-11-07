@@ -32,7 +32,7 @@ def _assign(sessions, rng, fractions):
 
 def make_splits(rows, seed=0, fractions=(0.7, 0.15, 0.15), tries=500):
     """rows: manifest dicts (included only are used). Returns (session->split, report dict)."""
-    rows = [r for r in rows if str(r["included"]) == "True"]
+    rows = [r for r in rows if str(r["included"]) == "True" and str(r.get("class_in_vocabulary", True)) == "True"]
     per_sess = defaultdict(Counter)
     for r in rows:
         per_sess[r["session_id"]][r["class_name_canonical"]] += 1
@@ -70,7 +70,7 @@ def write_splits(rows, assign, path):
         w = csv.writer(f)
         w.writerow(["relative_path", "session_id", "class_name_canonical", "class_id", "split"])
         for r in rows:
-            if str(r["included"]) == "True":
+            if str(r["included"]) == "True" and str(r.get("class_in_vocabulary", True)) == "True":
                 w.writerow([r["relative_path"], r["session_id"], r["class_name_canonical"], r["class_id"],
                             assign[r["session_id"]]])
 

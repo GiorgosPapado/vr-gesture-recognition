@@ -2,7 +2,7 @@
 
 Rules (author's decisions): check value false -> excluded (flagged_false); not in the check file -> excluded
 (unchecked) until verified; check-file entries with no file on disk are listed (not_found_on_disk); files
-directly in the root (a small named sample) and folders listed in --exclude-dirs -> excluded_folder.
+directly in the root are part of the dataset (session_id "(root)"); folders listed in --exclude-dirs -> excluded_folder.
 Check-file keys are bare file names; they are matched against the file's base name.
 
     python -m dataset_v2.build_manifest --recordings-root <.../Gestures> --check-file <check.json>
@@ -18,7 +18,8 @@ from pathlib import Path
 from .classes import CLASS_ID, CLASSES, hand_of, normalise
 
 FIELDS = ["relative_path", "session_id", "class_name_canonical", "class_id", "hand", "raw_class_token",
-          "checked", "check_value", "included", "exclusion_reason"]
+          "checked", "check_value", "included", "exclusion_reason", "class_in_vocabulary"]
+ROOT_SESSION = "(root)"
 REASONS = ["flagged_false", "unchecked", "not_found_on_disk", "excluded_folder"]
 DEFAULT_EXCLUDE_DIRS = ["AggelosTest", "IoannaTest"]  # named after individuals; consent unknown
 
@@ -41,15 +42,16 @@ def scan(root, exclude_dirs):
                 continue
             rel = (rel_dir / f).as_posix()
             if not parts:
-                yield rel, "", True  # loose file in the root: the named sample, not a session
+                yield rel, ROOT_SESSION, False  # loose file in the root: included, grouped as one pseudo-session
             else:
                 yield rel, parts[0], any(p.lower() in excl for p in parts)
 
 
 def _row(rel, session, tok, checked, val, reason):
     canon, _ = normalise(tok)
-    return {"relative_path": rel, "session_id": session, "class_name_canonical": canon or "",
-            "class_id": CLASS_ID.get(canon, -1), "hand": hand_of(canon) if canon else "",
+    name = canon or tok.removesuffix(".json")  # out-of-vocabulary names (LeftOK, RightOK) keep their own name
+    return {"relative_path": rel, "session_id": session, "class_name_canonical": name,
+            "class_id": CLASS_ID.get(canon, -1), "hand": hand_of(name), "class_in_vocabulary": canon is not None,
             "raw_class_token": tok, "checked": checked, "check_value": "" if val is None else bool(val),
             "included": reason == "", "exclusion_reason": reason}
 
@@ -91,24 +93,26 @@ def summarise(rows, anomalies, tokens, n_check):
     on_disk = [r for r in rows if r["exclusion_reason"] != "not_found_on_disk"]
     sess = defaultdict(Counter)
     for r in on_disk:
-        sess[r["session_id"] or "(root)"][r["exclusion_reason"] or "included"] += 1
+        sess[r["session_id"]][r["exclusion_reason"] or "included"] += 1
+    oov = [r["relative_path"] for r in inc if not r["class_in_vocabulary"]]
     per_class_hand = {c: {"included": 0, "flagged_false": 0, "unchecked": 0, "not_found_on_disk": 0,
                           "excluded_folder": 0} for c in CLASSES}
     for r in rows:
-        if r["class_name_canonical"]:
+        if r["class_in_vocabulary"]:
             per_class_hand[r["class_name_canonical"]][r["exclusion_reason"] or "included"] += 1
     return {
         "n_rows": len(rows), "n_on_disk": len(on_disk), "n_check_entries": n_check, "n_included": len(inc),
+        "n_included_in_vocabulary": len(inc) - len(oov), "included_outside_vocabulary": oov,
         "n_on_disk_in_check_file": sum(1 for r in on_disk if r["checked"]),
         "n_on_disk_not_in_check_file": sum(1 for r in on_disk if not r["checked"]),
         "exclusion_reasons": dict(Counter(r["exclusion_reason"] for r in rows if r["exclusion_reason"])),
         "n_distinct_raw_class_tokens": len(tokens),
-        "n_canonical_classes_in_included": len({r["class_name_canonical"] for r in inc}),
+        "n_canonical_classes_in_included": len({r["class_name_canonical"] for r in inc if r["class_in_vocabulary"]}),
         "included_per_class": {c: per_class_hand[c]["included"] for c in CLASSES},
         "per_class_all_outcomes": per_class_hand,
         "included_per_hand": dict(Counter(r["hand"] for r in inc)),
         "check_value_counts_on_disk": dict(Counter(str(r["check_value"]) for r in on_disk if r["checked"])),
-        "n_sessions": len([k for k, v in sess.items() if k != "(root)" and sum(v.values()) > v["excluded_folder"]]),
+        "n_sessions": len([k for k, v in sess.items() if k != ROOT_SESSION and sum(v.values()) > v["excluded_folder"]]),
         "sessions": {k: {**v, "total": sum(v.values())} for k, v in sorted(sess.items())},
         "anomalies": anomalies,
     }
@@ -117,7 +121,9 @@ def summarise(rows, anomalies, tokens, n_check):
 def to_markdown(s):
     L = ["# VRGestures v2 manifest summary", "",
          f"- rows: {s['n_rows']}; on disk: {s['n_on_disk']}; check-file entries: {s['n_check_entries']}; "
-         f"**included: {s['n_included']}**",
+         f"**included: {s['n_included']}** ({s['n_included_in_vocabulary']} in the 24-class vocabulary)",
+         "- included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author): "
+         + (", ".join(f"`{p}`" for p in s["included_outside_vocabulary"]) or "none"),
          f"- on disk and in check file: {s['n_on_disk_in_check_file']}; on disk, not in check file: "
          f"{s['n_on_disk_not_in_check_file']}; sessions: {s['n_sessions']}", "",
          "## Exclusion reasons", "", "| reason | count |", "|---|---|"]

@@ -19,7 +19,7 @@ The recordings are not part of this repository.
   point to files that are not on disk.
 - Filename date range of the included recordings: September 28 09:55 to October 11 14:57 (the year is not
   encoded in the file names; 2,297 files from September, 4,861 from October).
-- File sizes: on disk 15.2 GB in total (7,872 files), median 1.67 MB, mean 1.93 MB, max 12.1 MB; included set 14.0 GB.
+- File sizes: on disk 15.2 GB in total (7,872 files), median 1.67 MB, mean 1.93 MB, max 12.1 MB; exported set (7,182 files) 14.1 GB.
 
 ## Cleaning rules (author's decisions)
 
@@ -28,20 +28,30 @@ The recordings are not part of this repository.
 | check value `false` -> excluded (`flagged_false`) | 241 |
 | not in check file -> excluded until verified (`unchecked`) | 447 |
 | check entry without a file (`not_found_on_disk`, listed only) | 35 |
-| loose files in the root (named sample, one per class plus `LeftOK`/`RightOK`) and folders `AggelosTest`, `IoannaTest` (named after individuals, consent unknown) -> `excluded_folder` | 26 (the two test folders were not present under this root) |
-| **included** (true, on disk, not excluded) | **7,158** |
+| folders `AggelosTest`, `IoannaTest` (named after individuals, consent unknown) -> `excluded_folder` | 0 (not present under this root; rule kept) |
+| **included in the manifest** (true, on disk, not excluded; includes the 26 loose root files) | **7,184** |
+| of which in the 24-class vocabulary (exported to npz, splits, baselines) | **7,182** |
 
-The 26 loose root files are all `true` in the check file; counting them would give 7,184 (= 7,219 true - 35
-missing), so the expected 7,184 is reproduced exactly only if those 26 files are included. They are excluded
-here because they are the named sample. Included per class and per session: see `manifest_summary.md`
-(per hand: right 3,667, left 3,048, both 443; 56 sessions contribute, the two fully unchecked ones do not).
+Author's decision: the 26 loose `.json` files in the root (all `true` in the check file) are part of the dataset;
+they form the pseudo-session `(root)`. 7,184 = 7,219 true - 35 missing, as expected. The 26 loose files are
+`LeftBack.json` ... `Zoom.json` (24, mapped to the canonical classes) plus `LeftOK.json` and `RightOK.json`:
+**included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author)** (`class_in_vocabulary`
+= False, `class_id` -1; their `class_name` inside the file is `GestureAnimation`; each has one hand, 158 and 135
+frames). They are not in the npz, splits or baselines.
+
+Warning on two loose files: `Teleportation.json` and `Zoom.json` both contain `class_name` "LeftInfinity" with 195
+frames and both hands present, i.e. their content does not agree with their file name (the other 22 in-vocabulary
+loose files agree). They are kept with the file-name label; TODO(author): confirm or drop them.
+
+Included in the vocabulary per hand: right 3,678, left 3,059, both 445; 57 groups contribute (56 session folders +
+`(root)`; the two fully unchecked sessions do not). Per class and per session: see `manifest_summary.md`.
 
 Class-name anomalies: the check file and the root contain 50 distinct leading name tokens instead of 24. The 24
 canonical tokens occur in the session files without any variant. The other 26 tokens are the loose root files
-(`LeftBack.json` ... `Zoom.json`, 24 of them map to a canonical class) and `LeftOK.json` / `RightOK.json`, which
-are not among the 24 classes (unmapped). No case differences or alternative spellings occur in session files; the
-mapping table in `classes.py` nevertheless accepts case and separator variants explicitly. For all 7,158
-included recordings the `class_name` stored inside the JSON equals the manifest class (0 mismatches).
+(24 map to a canonical class from the `X.json` form; `LeftOK.json` / `RightOK.json` are unmapped). No case
+differences or alternative spellings occur in session files; the mapping table in `classes.py` nevertheless
+accepts case and separator variants explicitly. For all included in-vocabulary recordings except the two loose
+files above, the `class_name` stored inside the JSON equals the manifest class (7,180 of 7,182 match).
 
 ## Recording format (from the data)
 
@@ -49,22 +59,22 @@ Top-level keys `frameData`, `class_name`, `class_ID`. `frameData` has `left_hand
 each with 24 joints: `pos` x,y,z and `rotation` quaternion x,y,z,w, hand-local, joint 0 = (0,0,0)),
 `left_hand_global` / `right_hand_global` and `hmd` (`pos`, `rotation`, one pose per frame), and `timestamps` (seconds,
 one per frame). A hand not used in a gesture is an empty list. In the 300-recording sample: left-hand gestures
-have only the left hand (138), right-hand gestures only the right (145), Teleportation/Zoom both (17). `class_ID` in
+have only the left hand (132), right-hand gestures only the right (152), Teleportation/Zoom both (16). `class_ID` in
 the files uses a per-hand numbering (e.g. LeftClick 9 vs RightClick 11); use the manifest `class_id`.
 
-Random sample of 300 included recordings (seed 0):
+Random sample of 300 in-vocabulary included recordings (seed 0):
 
 | statistic | min | median | mean | p95 | max |
 |---|---|---|---|---|---|
-| frames | 56 | 141.5 | 168.3 | 317.7 | 660 |
-| duration (s) | 1.2 | 3.0 | 3.2 | 5.3 | 10.0 |
-| frame rate (Hz) | 18.3 | 54.8 | 54.5 | 71.6 | 71.9 |
+| frames | 71 | 149.0 | 176.4 | 329.2 | 720 |
+| duration (s) | 1.2 | 3.0 | 3.2 | 5.5 | 10.0 |
+| frame rate (Hz) | 18.1 | 61.4 | 56.5 | 71.7 | 72.0 |
 
-The frame rate is far from constant across recordings (p5 35 Hz); resampling to a fixed length ignores real time.
+The frame rate is far from constant across recordings (p5 36 Hz); resampling to a fixed length ignores real time.
 
 ## Splits and baselines
 
-Participant ids are not in the files. Splits are grouped by session folder (a proxy; the same person may appear in
+Participant ids are not in the files. Splits are grouped by session folder (a proxy; the same person may appear in The loose root files form one pseudo-session `(root)`.
 several sessions, so results may be optimistic for unseen people). Default: 70/15/15 of sessions, seeded, with a
 deterministic seed scan so that every class appears in every split. See `splits.csv`, `splits_report.json`,
 `BASELINES.md`.
