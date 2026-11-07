@@ -12,3 +12,6 @@ __pycache__/
 *.npy
 dataset_v2/**/*.npz
 dataset_v2/data/
+
+# Local MLflow runs
+mlruns/
