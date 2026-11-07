@@ -27,7 +27,8 @@ def render(r):
          + "; ".join(f"{k} {v}" for k, v in r["grids"].items()) + ". "
          f"Logistic regression max_iter {r['models']['logreg']['max_iter']} (iterations used: "
          f"{r['models']['logreg']['n_iter_reached']}).", "",
-         "Note: the loose `Teleportation.json` and `Zoom.json` contain `class_name` LeftInfinity (see DATA_CARD).", "",
+         "Note: the two mislabelled loose files `Teleportation.json` and `Zoom.json` were removed from the source "
+         "folders by the author and are not in the manifest, splits or npz (see DATA_CARD).", "",
          "## Main result (full test split)", "",
          "| model | selected | optimum on grid edge | val macro-F1 | test accuracy | test macro-F1 |",
          "|---|---|---|---|---|---|"]

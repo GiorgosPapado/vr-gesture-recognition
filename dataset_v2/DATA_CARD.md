@@ -89,8 +89,8 @@ deterministic seed scan so that every class appears in every split. See `splits.
 `BASELINES.md`.
 
 Baseline caveats (all numbers in `BASELINES.md` / `baselines_results.json`, regenerated on this manifest and
-`splits.csv`): the whole `(root)` pseudo-session lies in the test split (the npz holds 22 of its 24 in-vocabulary
-files, without `Teleportation.json` and `Zoom.json`), so test metrics are reported with and without it; test
+`splits.csv`): the whole `(root)` pseudo-session lies in the test split (its 22 in-vocabulary files are all in the npz;
+`LeftOK.json` / `RightOK.json` are outside the vocabulary), so test metrics are reported with and without it; test
 accuracy is given with a session-cluster bootstrap CI over the 9 test sessions, which is wide; the absent hand is
 zero-filled, so left/right/both is readable from the input and a hand-presence-only baseline is reported next to the
 11-way within-hand accuracy; the hand-local joint positions are nearly constant in this export (see the ablation in
