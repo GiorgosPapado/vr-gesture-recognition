@@ -31,6 +31,8 @@ Open http://localhost:8080/ in a WebXR-capable browser. (`npx` ships with npm; n
 ### Training
 Run from `training/components/ml/src` (Hydra configs live in `conf/`).
 
+**Python version:** the training requirements (numpy 1.22, sktime 0.15.1, ...) are pinned for Python 3.10 only; use a Python 3.10 environment. The `dataset_v2` tools are separate and need only numpy and scikit-learn.
+
 Install dependencies, including the vendored Nevergrad sweeper (an edited copy of the PyPI archive, patched for numpy/nevergrad version incompatibilities):
 ```bash
 cd training/components/ml

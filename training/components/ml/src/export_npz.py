@@ -73,7 +73,7 @@ def main(argv=None):
     out.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(out, X=X, y=y)
     meta = {"source": f"vr-gesture-recognition {args.loader} dataset", "features": features,
-            "n_channels": int(X.shape[2]), "window_len": int(X.shape[1]), "n": int(len(X)),
+            "n_channels": int(X.shape[2]), "window_len": int(X.shape[1]), "n": len(X),
             "length_mode": "pad_crop" if args.pad else "linear_resample", "handedness": args.handedness,
             "class_ids": sorted(int(v) for v in np.unique(y)), "has_subject": False}
     out.with_name(out.stem + ".meta.json").write_text(json.dumps(meta, indent=2) + "\n", encoding="utf-8")

@@ -29,7 +29,7 @@ def evaluate_model(cfg, **kwargs):
                         handedness = cfg.dataset.handedness if 'handedness' in cfg.dataset else None)                        
     
     class_map = { class_index : class_id for class_index, class_id in enumerate(np.unique(y_test.values))}
-    with open(r'C:\Users\giorgospap\Desktop\EKETA\INFINITY\vr-gestures\components\ml\src\mlruns\299390844902800384\279b07cd0e924c358f570ca9f721fcc6\artifacts\model\model.pkl', 'rb') as f:
+    with open(os.environ['VRG_MODEL_PKL'], 'rb') as f:
         clf = pickle.load(f)
 
     # X_test = X_test.iloc[83:85,:]
