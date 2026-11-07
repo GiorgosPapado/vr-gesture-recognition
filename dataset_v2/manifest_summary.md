@@ -1,7 +1,7 @@
 # VRGestures v2 manifest summary
 
 - rows: 7907; on disk: 7872; check-file entries: 7460; **included: 7184** (7182 in the 24-class vocabulary)
-- included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author): `LeftOK.json`, `RightOK.json`
+- included in the manifest, outside the 24-class vocabulary, thumbs-up gestures per author statement (not verified): `LeftOK.json`, `RightOK.json`
 - on disk and in check file: 7425; on disk, not in check file: 447; sessions: 58
 
 ## Exclusion reasons

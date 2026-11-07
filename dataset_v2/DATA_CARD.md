@@ -35,13 +35,16 @@ The recordings are not part of this repository.
 Author's decision: the 26 loose `.json` files in the root (all `true` in the check file) are part of the dataset;
 they form the pseudo-session `(root)`. 7,184 = 7,219 true - 35 missing, as expected. The 26 loose files are
 `LeftBack.json` ... `Zoom.json` (24, mapped to the canonical classes) plus `LeftOK.json` and `RightOK.json`:
-**included in the manifest, outside the 24-class vocabulary, meaning unknown - TODO(author)** (`class_in_vocabulary`
-= False, `class_id` -1; their `class_name` inside the file is `GestureAnimation`; each has one hand, 158 and 135
+**included in the manifest, outside the 24-class vocabulary**. Author statement (not independently verified):
+`LeftOK.json` / `RightOK.json` are thumbs-up gestures (left hand / right hand). (`class_in_vocabulary`
+= False, `class_id` -1; their `class_name` inside the file is `GestureAnimation`, which does not match the intended meaning; this inconsistency is kept as documented; each has one hand, 158 and 135
 frames). They are not in the npz, splits or baselines.
 
-Warning on two loose files: `Teleportation.json` and `Zoom.json` both contain `class_name` "LeftInfinity" with 195
-frames and both hands present, i.e. their content does not agree with their file name (the other 22 in-vocabulary
-loose files agree). They are kept with the file-name label; TODO(author): confirm or drop them.
+Two loose files, `Teleportation.json` and `Zoom.json`, contain `class_name` "LeftInfinity" (195 frames, both hands),
+so their content does not agree with their file names. Author statement (not independently verified): they were
+mislabelled and the author is removing them from the source folders. They are excluded from the manifest and are no
+longer an open question. (Counts elsewhere in this card that were computed before this exclusion may still mention
+them; the manifest is the reference.)
 
 Included in the vocabulary per hand: right 3,678, left 3,059, both 445; 57 groups contribute (56 session folders +
 `(root)`; the two fully unchecked sessions do not). Per class and per session: see `manifest_summary.md`.
@@ -74,8 +77,11 @@ The frame rate is far from constant across recordings (p5 36 Hz); resampling to 
 
 ## Splits and baselines
 
-Participant ids are not in the files. Splits are grouped by session folder (a proxy; the same person may appear in The loose root files form one pseudo-session `(root)`.
-several sessions, so results may be optimistic for unseen people). Default: 70/15/15 of sessions, seeded, with a
+Participant ids are not in the files, and no session-to-participant mapping is available: the author states that if
+it is not in the source folders it no longer exists, and a read-only search of the source folders found none.
+Splits are grouped by session folder, so participant independence between splits cannot be guaranteed (the same
+person may appear in several sessions, so results may be optimistic for unseen people). The loose root files form
+one pseudo-session `(root)`. Default: 70/15/15 of sessions, seeded, with a
 deterministic seed scan so that every class appears in every split. See `splits.csv`, `splits_report.json`,
 `BASELINES.md`.
 
@@ -84,8 +90,9 @@ deterministic seed scan so that every class appears in every split. See `splits.
 - TODO(author): device / headset used.
 - TODO(author): hand-tracking SDK and version (the joint layout has 24 joints per hand).
 - TODO(author): capture protocol (environment, posture, repetitions per session, recording trigger).
-- TODO(author): number of participants and how sessions map to participants.
-- TODO(author): consent / ethics statement.
+- TODO(author): number of participants (the session-to-participant mapping is not available, see Splits).
+- Consent: author statement (not independently verified): participants gave consent for their gestures to be used.
+  TODO(author): exact consent/ethics wording and any approval ids.
 - TODO(author): instructions given to participants.
 - TODO(author): licence decision for v2.
 - TODO(author): relation to the Zenodo v1 record (doi 10.5281/zenodo.8027807, a different set: 15 controller + 11 per
@@ -127,4 +134,4 @@ Checked a random sample of 500 included recordings: top-level keys are always `c
 frames only `pos` and `rotation`. No subject / participant field was found (not every file was parsed, but the schema
 was uniform in the sample). Participant-wise splits are therefore not possible from the files; the 7-character hash
 in the session folder name and the 5-character token in each file name are not documented as subject ids
-(TODO(author): say whether the session hash corresponds to a participant).
+(no mapping from session hash to participant is available; see Splits).
