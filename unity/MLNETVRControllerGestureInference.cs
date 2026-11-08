@@ -13,13 +13,15 @@ namespace Assets.Scripts.VRGestures.Core.ONNX
         private InferenceSession m_Session;
         public Handedness m_Handedness = Handedness.RIGHT;
         
+        [SerializeField] private string m_ModelFileName = "vr-controller-gestrec-ext-wneg.onnx";
+        // Optional absolute override; leave empty to load from StreamingAssets/gestures/
+        [SerializeField] private string m_ModelPathOverride = "";
+
         public void Awake()
         {
-            //const string path_to_onnx_model = ".\\gestures\\vr-controller-gestrec.onnx";
-            //const string path_to_onnx_model = ".\\gestures\\vr-controller-gestrec-ext.onnx";
-            const string path_to_onnx_model = ".\\gestures\\vr-controller-gestrec-ext-wneg.onnx";
-            //const string path_to_onnx_model = ".\\gestures\\test.onnx";
-            //const string path_to_onnx_model = ".\\gestures\\model.onnx";
+            string path_to_onnx_model = string.IsNullOrEmpty(m_ModelPathOverride)
+                ? System.IO.Path.Combine(Application.streamingAssetsPath, "gestures", m_ModelFileName)
+                : m_ModelPathOverride;
 
             m_Session = new InferenceSession(path_to_onnx_model);
         }
