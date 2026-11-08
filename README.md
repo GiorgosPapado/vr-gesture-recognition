@@ -55,7 +55,7 @@ python train.py --config-name train-all -m
 
 ## VRGestures v2 dataset tooling (`dataset_v2/`)
 
-Manifest, loader, session-grouped splits and baselines for the cleaned hand-gesture set (24 classes: 11 gestures per hand + Teleportation + Zoom). **No recordings are stored in this repository** (npz/data are git-ignored); `dataset_v2/` holds only code and derived metadata (`manifest.csv`, `splits.csv`, summaries). See `dataset_v2/DATA_CARD.md`.
+Manifest, loader, session-grouped splits and baselines for the cleaned hand-gesture set (24 classes: 11 gestures per hand + Teleportation + Zoom). **No recordings are stored in this repository** (npz/data are git-ignored); `dataset_v2/` holds only code and derived metadata (`manifest.csv`, `splits.csv`, summaries). Recordings are kept locally (path via the `VRG_V2_RECORDINGS_ROOT` env var or `--recordings-root`) and are never committed. See `dataset_v2/DATA_CARD.md`.
 
 ```bash
 python -m dataset_v2.build_manifest --recordings-root <.../Gestures> --check-file <check.json>   # or VRG_V2_RECORDINGS_ROOT / VRG_V2_CHECK_FILE
