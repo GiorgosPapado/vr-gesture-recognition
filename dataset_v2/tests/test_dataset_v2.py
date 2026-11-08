@@ -44,7 +44,10 @@ def test_manifest_rules(tree):
 
 def test_manifest_cli_outputs(tree, tmp_path):
     root, cf, _, n = tree
-    build_manifest.main(["--recordings-root", str(root), "--check-file", str(cf), "--out-dir", str(tmp_path), "--exclude-dirs", "ExcludedTest"])
+    build_manifest.main([
+        "--recordings-root", str(root), "--check-file", str(cf),
+        "--out-dir", str(tmp_path), "--exclude-dirs", "ExcludedTest",
+    ])
     s = json.loads((tmp_path / "manifest_summary.json").read_text(encoding="utf-8"))
     assert s["n_included"] == n + 1 and s["n_included_in_vocabulary"] == n and s["n_sessions"] == 8
     assert (tmp_path / "manifest.csv").exists() and "included" in (tmp_path / "manifest_summary.md").read_text()
