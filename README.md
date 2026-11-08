@@ -18,7 +18,7 @@ docs/       VRController-Gesture Recognition.docx
 
 ### Unity
 1. Import `unity/CERTH gestures update.unitypackage` into your project.
-2. Add `VRControllerGestureInput` to your controller object and assign the ONNX model `unity/vr-controller-gestrec-ext-wneg.onnx`.
+2. Add `VRControllerGestureInput` to your controller object and copy the ONNX model `unity/vr-controller-gestrec-ext-wneg.onnx` to `Assets/StreamingAssets/gestures/` (the inference component loads it from there; the file name and an optional absolute path override are serialized fields on `MLNETVRControllerGestureInference`).
 3. TODO: Unity version, XR plugin requirements, ML.NET/ONNX runtime package versions.
 
 ### WebXR / browser
@@ -31,7 +31,9 @@ Open http://localhost:8080/ in a WebXR-capable browser. (`npx` ships with npm; n
 ### Training
 Run from `training/components/ml/src` (Hydra configs live in `conf/`).
 
-**Python version:** the training requirements (numpy 1.22, sktime 0.15.1, ...) are pinned for Python 3.10 only; use a Python 3.10 environment. The `dataset_v2` tools are separate and need only numpy and scikit-learn.
+**Python version:** the training requirements (numpy 1.22, sktime 0.15.1, ...) are pinned for Python 3.10 only; use a Python 3.10 environment. Other Python versions were not tested for training (the pins, e.g. numpy 1.22 and tensorflow 2.11, predate newer interpreters); CI only runs the CPU `dataset_v2` tests and lint. The `dataset_v2` tools are separate and need only numpy and scikit-learn.
+
+Nevergrad is pinned to a git commit in `requirements.txt` because a release was not verified compatible with the patched sweeper (see the comment there).
 
 Install dependencies, including the vendored Nevergrad sweeper (an edited copy of the PyPI archive, patched for numpy/nevergrad version incompatibilities):
 ```bash
@@ -41,7 +43,7 @@ pip install deps/hydra-nevergrad-sweeper-1.2.0.tar
 ```
 
 Machine-specific settings come from `conf/environment/local.yaml`, overridable through environment variables:
-`VRG_PYTHON`, `VRG_SRC_DIR` (also the MLflow `mlruns` location), `VRG_CONTROLLER_DATASET_DIR`, `VRG_HAND_DATASET_DIR`.
+`VRG_PYTHON`, `VRG_SRC_DIR` (also the MLflow `mlruns` location), `VRG_CONTROLLER_DATASET_DIR`, `VRG_HAND_DATASET_DIR`, `VRG_ONNX_MODEL` (model used by `evaluate_onnx`).
 ```bash
 cd training/components/ml/src
 export VRG_CONTROLLER_DATASET_DIR=/path/to/controller-gesture-dataset
@@ -75,7 +77,7 @@ Gesture set shown in `unity/` legend images. Recognition is based on the control
 
 | File | Used by | Notes |
 |---|---|---|
-| unity/vr-controller-gestrec-ext-wneg.onnx | Unity | TODO: classes, input shape, accuracy |
+| unity/vr-controller-gestrec-ext-wneg.onnx | Unity (canonical copy; also byte-identical to the former `training/components/ml/src/model.onnx`, sha256 852cc3a7...a05da5, which was removed - set `VRG_ONNX_MODEL` to evaluate it) | TODO: classes, input shape, accuracy |
 | webxr/pyrocket3.onnx | WebXR | TODO |
 | unity-webxr-bridge/pyrocket2.onnx | bridge samples | TODO: purpose and differences from pyrocket3 |
 | unity-webxr-bridge/vr-controller-gestrec-ext-wneg.onnx | bridge samples | same file name as the Unity model but contents differ (binary compare); TODO: document the difference |
