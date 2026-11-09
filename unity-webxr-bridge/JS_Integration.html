@@ -39,7 +39,7 @@
 <p class = "text-center">In this HTML page, we assemble the predicted results based on Controller Gestures from both javascript and python. Two buttons appear, the former gets its Controller input from the training set, while the latter takes its value from the test set. OnClick, a random instance is being called. Both buttons return the Ground Truth Name and ID and correlate them with the outcome from both languages to check if they match. Finally, each of our gestures measures their probability to fit the random gesture.</p>
 
         <div class="text-center">
-        <button type="button" name="TrainButton" onclick="runExample('./gesture_data_train.json', 'train', {
+        <button type="button" name="TrainButton" onclick="runExample('../webxr/gesture_data_train.json', 'train', {
             'gt_class_id' : 'gt_class_id_train',
             'gt_class_name' : 'gt_class_name_train',
             'py_pred_class_id' : 'py_class_id_train',
@@ -64,7 +64,7 @@
     </div>
 
     <div class="text-center">
-        <button type="button" name="TestButton" onclick="runExample('./gesture_data_test.json', 'test', {
+        <button type="button" name="TestButton" onclick="runExample('../webxr/gesture_data_test.json', 'test', {
             'gt_class_id' : 'gt_class_id_test',
             'gt_class_name' : 'gt_class_name_test',
             'py_pred_class_id' : 'py_class_id_test',

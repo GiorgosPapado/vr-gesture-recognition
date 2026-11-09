@@ -49,7 +49,7 @@ cd training/components/ml/src
 export VRG_CONTROLLER_DATASET_DIR=/path/to/controller-gesture-dataset
 python train.py --config-name train-all -m
 ```
-- `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `test.py` (default config `test`, used by `run_evaluation.bat`; `evaluation.py` is an empty placeholder); `onnx.py` and `test_onnx.py` (default config `onnx`); `bench.py` defaults to `bench-all`). See the `run_*.bat` scripts for Windows examples.
+- `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `evaluate_cv.py` (default config `test`, used by `run_evaluation.bat`); `export_onnx_cli.py` and `test_onnx.py` (default config `onnx`); `bench.py` defaults to `bench-all`). See the `run_*.bat` scripts for Windows examples.
 - `.vscode/launch.json` reads dataset locations from `VRG_DATASET_ROOT_A` (root holding `controller-gesture-dataset/` and `hand-gesture-dataset/`) and `VRG_DATASET_ROOT_B` (root holding the `vcl3d-*` datasets, e.g. `vcl3d-hand-gesture-dataset/`). Set both before using those launch configurations.
 - Dataset format and download location: TODO.
 - Sweep results and ONNX export workflow: TODO.
@@ -68,6 +68,26 @@ python -m pytest -q dataset_v2
 ```
 
 Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included (7,182 in the manifest, 7,180 in the 24-class vocabulary); `false` and unchecked recordings are excluded. **Not verified / unknown** (marked `TODO(author)` in the data card): headset and tracking SDK, capture protocol, number of participants, exact consent/ethics wording (the author states participants consented), licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy: no session-to-participant mapping exists, so participant independence between splits cannot be guaranteed.
+
+## Results (VRGestures v2, 24 classes, session-grouped split)
+
+Test split: 1002 recordings from 9 sessions. Chance: 0.030 (majority class), 0.042 (uniform). Neural models: 3 training seeds (0, 1, 2), 60 epochs, CPU; epoch chosen on validation macro-F1 only, test scored once per run. Logistic regression is a single deterministic fit.
+
+| model | test accuracy | test macro-F1 | per-seed accuracy |
+|---|---|---|---|
+| logistic regression (16-step features) | 0.397 | 0.397 | n/a |
+| GRU (43k params) | 0.409 ± 0.022 | 0.372 ± 0.021 | 0.381, 0.408, 0.436 |
+| 1D-CNN (70k params) | 0.219 ± 0.029 | 0.219 ± 0.025 | 0.179, 0.237, 0.242 |
+
+Mean ± population std over the 3 seeds. 95% session-bootstrap intervals (1000 resamples of the 9 test sessions) exist for the seed-0 run only: logistic regression accuracy [0.323, 0.473]; GRU [0.278, 0.488]; CNN [0.120, 0.228]. They reflect which test sessions were drawn, not seed variance, and the seed-0 GRU happens to be its weakest seed.
+
+What this supports: the CNN is clearly worse than logistic regression (paired difference CI excludes 0 on both metrics). The GRU is not distinguishable from logistic regression on accuracy, and its seed-0 macro-F1 is lower (paired CI [-0.107, -0.014], uncorrected for multiple comparisons); its 3-seed mean macro-F1 (0.372) is below the logistic regression value (0.397). **No neural model beat the linear baseline on this split.** Only 3 seeds and 9 test sessions, so small differences are not resolved. No run hit the epoch cap, but no augmentation or tuning beyond epoch selection was tried. Participant independence between splits is not guaranteed (see the data note above).
+
+Sources: `dataset_v2/baselines_results.json` and `dataset_v2/deep_baseline_results.json` (command, seeds, npz/splits/baseline hashes, git commit, torch version recorded in the latter; the logistic-regression refit reproduced the stored accuracy). Reproduce: `python -m dataset_v2.deep_baseline --npz <outside-repo>/vrgestures_v2.npz --seeds 0 1 2 --epochs 60` (needs `pip install torch`; about 1 hour on CPU; CI skips these tests when torch is absent).
+
+## Architecture and preprocessing consistency
+
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the pipeline diagram and a side-by-side table of the preprocessing each client applies. The Unity, bridge C# and WebXR JS clients do **not** preprocess identically (channel count, reference frame, z sign, time channel). `parity/` runs the real `webxr/gesture_engine.js` under Node against a Python reference; the known differences are recorded as strict expected failures (`python -m pytest parity -q`, needs `npm ci --prefix parity`). The reference is the translation-only transform, so this shows the clients differ from each other, not yet how any of them differs from the training preprocessing. Model files are listed with hashes in [MODELS.md](MODELS.md); which ONNX was trained on what is unknown.
 
 ## Gestures
 

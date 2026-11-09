@@ -33,7 +33,7 @@ def do_test(cfg: DictConfig):
             test_cfg = experiment.test_cfg
             for classifier in experiment.classifiers:        
                 pbar.set_description(f"Testing classifier: {classifier} on {dataset}...")
-                path = os.path.join(hydra.utils.get_original_cwd(),'test.py')
+                path = os.path.join(hydra.utils.get_original_cwd(),'evaluate_cv.py')
                 cmd = f'{cfg.environment.python} {path} --config-name {test_cfg} +classifier={classifier} +clfparameters/{dataset}@_global_={classifier} +dataset={dataset}'
                 subprocess.run(
                     cmd

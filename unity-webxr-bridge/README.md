@@ -8,3 +8,7 @@
    ```
 
 2. open your browser and navigate to the URL.
+
+## Sample data
+
+`gesture_data_train.json` and `gesture_data_test.json` are not duplicated here; `JS_Integration.html` loads them from `../webxr/`, the single source. Serve the repo root (not this folder alone) so that relative path resolves.

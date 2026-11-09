@@ -1,1 +1,1 @@
-python.exe test.py -m
+python.exe evaluate_cv.py -m
