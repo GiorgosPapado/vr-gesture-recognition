@@ -125,7 +125,7 @@
             "name": "Evaluation",
             "type": "python",
             "request": "launch",
-            "program": "test.py",
+            "program": "evaluate_cv.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
@@ -301,7 +301,7 @@
             "name": "Test",
             "type": "python",
             "request": "launch",
-            "program": "test.py",
+            "program": "evaluate_cv.py",
             "console": "integratedTerminal",
             "justMyCode": false,
             "args" : [
@@ -312,7 +312,7 @@
             "name": "ONNX",
             "type": "python",
             "request": "launch",
-            "program": "onnx.py",
+            "program": "export_onnx_cli.py",
             "console": "integratedTerminal",
             "justMyCode": false,
             "args" : [

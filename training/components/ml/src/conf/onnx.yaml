@@ -7,7 +7,7 @@ defaults:
 actions:
   # to_onnx:
   #   sktime_model_file_path: ${oc.env:VRG_SRC_DIR,.}/mlruns/<experiment_id>/<run_id>/artifacts/model/model.pkl
-  #   output_onnx_file_path: ${oc.env:VRG_SRC_DIR,.}/model.onnx
+  #   output_onnx_file_path: ${oc.env:VRG_ONNX_MODEL,${oc.env:VRG_SRC_DIR,.}/model.onnx}
   #   in_features: 3
   evaluate_onnx:
     onnx_file_path: ${oc.env:VRG_SRC_DIR,.}/model.onnx

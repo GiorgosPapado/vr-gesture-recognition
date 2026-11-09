@@ -187,6 +187,6 @@ wrapt==1.14.1
 xarray==2023.1.0
 zict==2.2.0
 zipp==3.11.0
-# torch and onnxruntime are imported by src/onnx.py; unpinned (versions not recorded)
+# torch and onnxruntime are imported by src/export_onnx_cli.py; unpinned (versions not recorded)
 torch
 onnxruntime

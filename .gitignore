@@ -12,6 +12,10 @@ __pycache__/
 *.npy
 dataset_v2/**/*.npz
 dataset_v2/data/
+# raw recordings (kept locally, never in the repo)
+dataset_v2/**/*.bin
+dataset_v2/recordings/
+recordings/
 
 # Local MLflow runs
 mlruns/

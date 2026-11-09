@@ -1,0 +1,9 @@
+{
+  "name": "vrg-parity",
+  "private": true,
+  "description": "Dev-only: three.js for running webxr/gesture_engine.js preprocessing under Node",
+  "type": "module",
+  "dependencies": {
+    "three": "0.160.0"
+  }
+}

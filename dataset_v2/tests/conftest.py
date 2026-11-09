@@ -55,7 +55,7 @@ def tree(tmp_path_factory):
     for oov in ("LeftOK", "Zoom"):
         write_recording(root / f"{oov}.json", oov, 8, rng)
         check[f"{oov}.json"] = True
-    write_recording(root / "AggelosTest" / "LeftClick 9 x 01 October 10 10 1.json", "LeftClick", 8, rng)
+    write_recording(root / "ExcludedTest" / "LeftClick 9 x 01 October 10 10 1.json", "LeftClick", 8, rng)
     check["LeftClick 9 x 01 October 10 10 1.json"] = True
     cf = root.parent / "check.json"
     cf.write_text(json.dumps(check), encoding="utf-8")

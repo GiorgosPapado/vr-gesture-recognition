@@ -21,7 +21,7 @@ FIELDS = ["relative_path", "session_id", "class_name_canonical", "class_id", "ha
           "checked", "check_value", "included", "exclusion_reason", "class_in_vocabulary"]
 ROOT_SESSION = "(root)"
 REASONS = ["flagged_false", "unchecked", "not_found_on_disk", "excluded_folder"]
-DEFAULT_EXCLUDE_DIRS = ["AggelosTest", "IoannaTest"]  # named after individuals; consent unknown
+DEFAULT_EXCLUDE_DIRS = []  # none by default; pass --exclude-dirs <name> ... to skip folders
 
 
 def raw_token(filename):

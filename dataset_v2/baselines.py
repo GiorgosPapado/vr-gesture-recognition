@@ -46,6 +46,8 @@ def make_model(name, param, seed):
 
 
 def metrics(y_true, y_pred, labels):
+    # NOTE: macro-F1 averages over ALL ``labels``; a class absent from both y_true and y_pred scores F1 = 0
+    # (zero_division=0). Kept as is: published numbers depend on it (see tests/test_cluster_bootstrap.py).
     return {"accuracy": float(accuracy_score(y_true, y_pred)),
             "macro_f1": float(f1_score(y_true, y_pred, labels=labels, average="macro", zero_division=0)),
             "per_class_recall": {int(lab): float(r) for lab, r in zip(
@@ -74,8 +76,10 @@ def local_pos_channels(n_channels):
     return m
 
 
-def cluster_bootstrap(y, preds, groups, labels, n_boot=N_BOOT, seed=0):
-    """Resample test sessions with replacement (same resamples for every model -> paired differences)."""
+def cluster_bootstrap(y, preds, groups, labels, n_boot=N_BOOT, seed=0, diff_pairs=()):
+    """Resample test sessions with replacement (same resamples for every model -> paired differences).
+
+    ``diff_pairs``: optional (a, b) model-name pairs; adds ``paired["a_minus_b"]`` CIs of the metric differences."""
     sess = np.unique(groups)
     idx = {s: np.flatnonzero(groups == s) for s in sess}
     rng = np.random.RandomState(seed)
@@ -92,6 +96,15 @@ def cluster_bootstrap(y, preds, groups, labels, n_boot=N_BOOT, seed=0):
 
     out = {"n_boot": n_boot, "n_sessions": int(len(sess)), "seed": seed,
            "models": {m: {"accuracy_ci95": ci(acc[m]), "macro_f1_ci95": ci(f1[m])} for m in preds}}
+    if diff_pairs:
+        out["paired"] = {}
+        for a, b in diff_pairs:
+            da = np.asarray(acc[a]) - np.asarray(acc[b])
+            df = np.asarray(f1[a]) - np.asarray(f1[b])
+            out["paired"][f"{a}_minus_{b}"] = {
+                "accuracy_ci95": ci(da), "macro_f1_ci95": ci(df),
+                "accuracy_differs": bool(ci(da)[0] > 0 or ci(da)[1] < 0),
+                "macro_f1_differs": bool(ci(df)[0] > 0 or ci(df)[1] < 0)}
     if "logreg" in preds and "lda" in preds:
         da = np.asarray(acc["logreg"]) - np.asarray(acc["lda"])
         df = np.asarray(f1["logreg"]) - np.asarray(f1["lda"])

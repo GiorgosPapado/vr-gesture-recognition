@@ -3,7 +3,8 @@
 Status: draft. Every number below was computed from the recordings and the author's check file on the
 preparation machine with the scripts in this folder (`manifest_summary.md`, `manifest_summary.json`,
 `data_stats.json`). Facts only the author knows are marked `TODO(author)` and are intentionally not filled in.
-The recordings are not part of this repository.
+The recordings are not part of this repository and must never be added to it: they are kept locally and
+the path is given by the `VRG_V2_RECORDINGS_ROOT` environment variable or `--recordings-root`.
 
 ## Contents (from the data)
 
@@ -33,7 +34,6 @@ The recordings are not part of this repository.
 | check value `false` -> excluded (`flagged_false`) | 241 |
 | not in check file -> excluded until verified (`unchecked`) | 447 |
 | check entry without a file (`not_found_on_disk`, listed only) | 37 |
-| folders `AggelosTest`, `IoannaTest` (named after individuals, consent unknown) -> `excluded_folder` | 0 (not present under this root; rule kept) |
 | **included in the manifest** (true, on disk, not excluded; includes the 24 loose root files) | **7,182** |
 | of which in the 24-class vocabulary (exported to npz, splits, baselines) | **7,180** |
 

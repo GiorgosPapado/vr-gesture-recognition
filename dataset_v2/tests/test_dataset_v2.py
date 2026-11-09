@@ -9,7 +9,7 @@ from dataset_v2.classes import CLASSES, normalise
 
 def _manifest(tree):
     root, _, check, _ = tree
-    rows, anomalies, tokens = build_manifest.build(root, check)
+    rows, anomalies, tokens = build_manifest.build(root, check, ["ExcludedTest"])
     return rows, anomalies, tokens
 
 
@@ -28,7 +28,7 @@ def test_manifest_rules(tree):
     assert reasons["flagged_false"] == 1
     assert reasons["unchecked"] == 1
     assert reasons["not_found_on_disk"] == 1
-    assert reasons["excluded_folder"] == 1  # AggelosTest only; loose root files are included
+    assert reasons["excluded_folder"] == 1  # ExcludedTest only; loose root files are included
     inc = [r for r in rows if r["included"]]
     assert len(inc) == tree[3] - 2 + 3  # 3 loose root files (LeftClick, LeftOK, Zoom)
     oov = [r for r in inc if not r["class_in_vocabulary"]]
@@ -36,7 +36,7 @@ def test_manifest_rules(tree):
     assert oov[0]["class_name_canonical"] == "LeftOK" and oov[0]["class_id"] == -1
     assert {r["session_id"] for r in inc if "/" not in r["relative_path"]} == {"(root)"}
     assert all(r["checked"] and r["check_value"] is True for r in inc)
-    assert not any("AggelosTest" in r["relative_path"] for r in inc)
+    assert not any("ExcludedTest" in r["relative_path"] for r in inc)
     missing = [r for r in rows if r["exclusion_reason"] == "not_found_on_disk"][0]
     assert missing["relative_path"] == "" and missing["class_name_canonical"] == "Zoom"
     assert {"type": "variant_class_token", "token": "LeftClick.json", "mapped_to": "LeftClick", "count": 1} in anomalies
@@ -44,7 +44,10 @@ def test_manifest_rules(tree):
 
 def test_manifest_cli_outputs(tree, tmp_path):
     root, cf, _, n = tree
-    build_manifest.main(["--recordings-root", str(root), "--check-file", str(cf), "--out-dir", str(tmp_path)])
+    build_manifest.main([
+        "--recordings-root", str(root), "--check-file", str(cf),
+        "--out-dir", str(tmp_path), "--exclude-dirs", "ExcludedTest",
+    ])
     s = json.loads((tmp_path / "manifest_summary.json").read_text(encoding="utf-8"))
     assert s["n_included"] == n + 1 and s["n_included_in_vocabulary"] == n and s["n_sessions"] == 8
     assert (tmp_path / "manifest.csv").exists() and "included" in (tmp_path / "manifest_summary.md").read_text()
