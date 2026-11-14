@@ -2,7 +2,7 @@
 
 Status: draft. Every number below was computed from the recordings and the author's check file on the
 preparation machine with the scripts in this folder (`manifest_summary.md`, `manifest_summary.json`,
-`data_stats.json`). Facts only the author knows are marked `TODO(author)` and are intentionally not filled in.
+`data_stats.json`). Facts only the author knows are listed under "Not yet documented" and are intentionally not filled in.
 The recordings are not part of this repository and must never be added to it: they are kept locally and
 the path is given by the `VRG_V2_RECORDINGS_ROOT` environment variable or `--recordings-root`.
 
@@ -96,25 +96,25 @@ zero-filled, so left/right/both is readable from the input and a hand-presence-o
 11-way within-hand accuracy; the hand-local joint positions are nearly constant in this export (see the ablation in
 `BASELINES.md`).
 
-## To be provided by the author
+## Not yet documented
 
-- TODO(author): device / headset used.
-- TODO(author): hand-tracking SDK and version (the joint layout has 24 joints per hand).
-- TODO(author): capture protocol (environment, posture, repetitions per session, recording trigger).
-- TODO(author): number of participants (the session-to-participant mapping is not available, see Splits).
+- device / headset used.
+- hand-tracking SDK and version (the joint layout has 24 joints per hand).
+- capture protocol (environment, posture, repetitions per session, recording trigger).
+- number of participants (the session-to-participant mapping is not available, see Splits).
 - Consent: author statement (not independently verified): participants gave consent for their gestures to be used.
-  TODO(author): exact consent/ethics wording and any approval ids.
-- TODO(author): instructions given to participants.
-- TODO(author): licence decision for v2.
-- TODO(author): relation to the Zenodo v1 record (doi 10.5281/zenodo.8027807, a different set: 15 controller + 11 per
+  Exact consent/ethics wording and any approval ids.
+- instructions given to participants.
+- licence decision for v2.
+- relation to the Zenodo v1 record (doi 10.5281/zenodo.8027807, a different set: 15 controller + 11 per
   hand + 2 two-handed gestures).
-- TODO(author): year of the recordings and meaning of the check-file procedure (who/how recordings were verified).
+- year of the recordings and meaning of the check-file procedure (who/how recordings were verified).
 
 ## From the CGI 2023 paper (about v1; NOT verified for this JSON v2 set)
 
 Source: Papadopoulos, Doumanoglou, Zarpalas, CGI 2023 (LNCS); dataset DOI 10.5281/zenodo.8027807. These facts
 describe the published v1 and were supplied by the coordinator; none of them is checked against the v2 files. The v2
-`TODO(author)` items above stay open until the author confirms what applies to v2.
+items under "Not yet documented" stay open until the author confirms what applies to v2.
 
 - Device Meta Quest 2; Unity3D (left-handed coordinate system). Two Unity recording apps: controller app (SteamVR SDK)
   and hand app (Meta Oculus Integration + Voice SDK: a spoken predefined word starts and another stops recording; a

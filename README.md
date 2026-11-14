@@ -2,8 +2,6 @@
 
 Real-time VR controller gesture recognition: train a model in Python, export it to ONNX, and run it in Unity (C#/ML.NET) or in the browser (WebXR/JavaScript).
 
-> TODO: add a short GIF of a gesture being drawn and recognized.
-
 ## Repository layout
 
 ```
@@ -19,7 +17,7 @@ docs/       VRController-Gesture Recognition.docx
 ### Unity
 1. Import `unity/CERTH gestures update.unitypackage` into your project.
 2. Add `VRControllerGestureInput` to your controller object and copy the ONNX model `unity/vr-controller-gestrec-ext-wneg.onnx` to `Assets/StreamingAssets/gestures/` (the inference component loads it from there; the file name and an optional absolute path override are serialized fields on `MLNETVRControllerGestureInference`).
-3. TODO: Unity version, XR plugin requirements, ML.NET/ONNX runtime package versions.
+3. The Unity version, XR plugin requirements and ML.NET/ONNX runtime package versions are not recorded in this repository yet.
 
 ### WebXR / browser
 ```bash
@@ -51,8 +49,8 @@ python train.py --config-name train-all -m
 ```
 - `train.py` has no default `train` config file, so pass `--config-name` (available: `train-all`, `train-alex`, `train-george`; other entry points: `bench.py` with `bench-all`, `bench-controller`, `bench-left-hands`, `bench-right-hands`; `evaluate_cv.py` (default config `test`, used by `run_evaluation.bat`); `export_onnx_cli.py` and `test_onnx.py` (default config `onnx`); `bench.py` defaults to `bench-all`). See the `run_*.bat` scripts for Windows examples.
 - `.vscode/launch.json` reads dataset locations from `VRG_DATASET_ROOT_A` (root holding `controller-gesture-dataset/` and `hand-gesture-dataset/`) and `VRG_DATASET_ROOT_B` (root holding the `vcl3d-*` datasets, e.g. `vcl3d-hand-gesture-dataset/`). Set both before using those launch configurations.
-- Dataset format and download location: TODO.
-- Sweep results and ONNX export workflow: TODO.
+- Dataset format and download location: not documented yet (the v1 dataset is on Zenodo, doi 10.5281/zenodo.8027807).
+- Sweep results and ONNX export workflow: not documented yet.
 - Run outputs (`mlruns/`, `multirun/`) are git-ignored.
 
 ## VRGestures v2 dataset tooling (`dataset_v2/`)
@@ -67,7 +65,7 @@ python -m dataset_v2.baselines --npz <outside-repo>/vrgestures_v2.npz
 python -m pytest -q dataset_v2
 ```
 
-Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included (7,182 in the manifest, 7,180 in the 24-class vocabulary); `false` and unchecked recordings are excluded. **Not verified / unknown** (marked `TODO(author)` in the data card): headset and tracking SDK, capture protocol, number of participants, exact consent/ethics wording (the author states participants consented), licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy: no session-to-participant mapping exists, so participant independence between splits cannot be guaranteed.
+Verified from the data: file counts, class names, session folders, JSON schema, frame statistics. Only a recording the author's check file marks `true` is included (7,182 in the manifest, 7,180 in the 24-class vocabulary); `false` and unchecked recordings are excluded. **Not verified / unknown** (listed under "Not yet documented" in the data card): headset and tracking SDK, capture protocol, number of participants, exact consent/ethics wording (the author states participants consented), licence for v2, and the relation to the Zenodo v1 record. Participant ids are not in the files, so splits are grouped by recording session, which is only a proxy: no session-to-participant mapping exists, so participant independence between splits cannot be guaranteed.
 
 ## Results (VRGestures v2, 24 classes, session-grouped split)
 
@@ -97,10 +95,10 @@ Gesture set shown in `unity/` legend images. Recognition is based on the control
 
 | File | Used by | Notes |
 |---|---|---|
-| unity/vr-controller-gestrec-ext-wneg.onnx | Unity (canonical copy; also byte-identical to the former `training/components/ml/src/model.onnx`, sha256 852cc3a7...a05da5, which was removed - set `VRG_ONNX_MODEL` to evaluate it) | TODO: classes, input shape, accuracy |
-| webxr/pyrocket3.onnx | WebXR | TODO |
-| unity-webxr-bridge/pyrocket2.onnx | bridge samples | TODO: purpose and differences from pyrocket3 |
-| unity-webxr-bridge/vr-controller-gestrec-ext-wneg.onnx | bridge samples | same file name as the Unity model but contents differ (binary compare); TODO: document the difference |
+| unity/vr-controller-gestrec-ext-wneg.onnx | Unity (canonical copy; also byte-identical to the former `training/components/ml/src/model.onnx`, sha256 852cc3a7...a05da5, which was removed - set `VRG_ONNX_MODEL` to evaluate it) | Classes, input shape and accuracy not documented yet |
+| webxr/pyrocket3.onnx | WebXR | Not documented yet |
+| unity-webxr-bridge/pyrocket2.onnx | bridge samples | Purpose and differences from pyrocket3 not documented yet |
+| unity-webxr-bridge/vr-controller-gestrec-ext-wneg.onnx | bridge samples | same file name as the Unity model but contents differ (binary compare); the difference is not documented yet |
 
 ## Research notes
 
@@ -109,7 +107,8 @@ Gesture set shown in `unity/` legend images. Recognition is based on the control
 ## Citation
 
 ```
-TODO: paper reference (first author: G. Papado)
+G. Papadopoulos, A. Doumanoglou, D. Zarpalas. VRGestures: Controller and Hand Gesture Datasets for Virtual Reality.
+Computer Graphics International (CGI), 2023. Dataset: doi 10.5281/zenodo.8027807
 ```
 
 ## License
