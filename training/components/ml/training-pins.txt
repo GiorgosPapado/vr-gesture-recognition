@@ -1,3 +1,6 @@
+# Archival, intentionally old pins for the 2023 training setup (Python 3.10, Windows). Deliberately NOT named
+# requirements*.txt so GitHub's dependency graph / Dependabot does not scan them; CI does not install this file.
+# Install with: pip install -r training-pins.txt
 numpy==1.22.0
 scikit-learn==1.2.0
 sktime==0.15.1

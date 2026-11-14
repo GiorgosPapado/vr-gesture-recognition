@@ -1,3 +1,6 @@
+# Archival, intentionally old pins for the 2023 training setup (Python 3.10, Windows). Deliberately NOT named
+# requirements*.txt so GitHub's dependency graph / Dependabot does not scan them; CI does not install this file.
+# Install with: pip install -r src/training-env-freeze.txt
 absl-py==1.4.0
 adagio==0.2.4
 alembic==1.9.2

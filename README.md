@@ -31,12 +31,12 @@ Run from `training/components/ml/src` (Hydra configs live in `conf/`).
 
 **Python version:** the training requirements (numpy 1.22, sktime 0.15.1, ...) are pinned for Python 3.10 only; use a Python 3.10 environment. Other Python versions were not tested for training (the pins, e.g. numpy 1.22 and tensorflow 2.11, predate newer interpreters); CI only runs the CPU `dataset_v2` tests and lint. The `dataset_v2` tools are separate and need only numpy and scikit-learn.
 
-Nevergrad is pinned to a git commit in `requirements.txt` because a release was not verified compatible with the patched sweeper (see the comment there).
+Nevergrad is pinned to a git commit in `training/components/ml/training-pins.txt` because a release was not verified compatible with the patched sweeper (see the comment there).
 
 Install dependencies, including the vendored Nevergrad sweeper (an edited copy of the PyPI archive, patched for numpy/nevergrad version incompatibilities):
 ```bash
 cd training/components/ml
-pip install -r requirements.txt
+pip install -r training-pins.txt
 pip install deps/hydra-nevergrad-sweeper-1.2.0.tar
 ```
 
